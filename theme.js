@@ -39,9 +39,20 @@
     var buttons = document.querySelectorAll('[data-theme-toggle]');
 
     buttons.forEach(function (button) {
-      button.textContent = nextTheme === 'dark' ? '夜间' : '白天';
-      button.dataset.themeTarget = nextTheme;
-      button.setAttribute('aria-label', '切换到' + (nextTheme === 'dark' ? '夜间' : '白天') + '模式');
+      var label = nextTheme === 'dark' ? '夜间' : '白天';
+      var ariaLabel = '切换到' + label + '模式';
+
+      if (button.textContent.trim() !== label) {
+        button.textContent = label;
+      }
+
+      if (button.dataset.themeTarget !== nextTheme) {
+        button.dataset.themeTarget = nextTheme;
+      }
+
+      if (button.getAttribute('aria-label') !== ariaLabel) {
+        button.setAttribute('aria-label', ariaLabel);
+      }
     });
   }
 
@@ -81,7 +92,7 @@
         paintControls();
       });
 
-      observer.observe(document.body, { childList: true, subtree: true });
+      observer.observe(document.body, { childList: true });
     }
   });
 
