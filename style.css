@@ -1,8 +1,73 @@
-/* style.css - 2025 Final Complete Version */
+/* style.css - 2026 theme-aware version */
 
 /* 全局盒模型重置，确保布局精准不溢出 */
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light;
+  --page-bg: #f5f5f5;
+  --content-bg: #fff;
+  --content-border: transparent;
+  --content-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  --text-main: #1a1a1a;
+  --text-body: #333;
+  --text-heading: #333;
+  --text-muted: #999;
+  --link: #008f84;
+  --accent: #00c2b3;
+  --accent-soft: rgba(0, 194, 179, 0.35);
+  --list-border: #eee;
+  --list-hover-bg: #fafafa;
+  --dash-border: #ddd;
+  --author-text: #555;
+  --image-shadow: none;
+  --logo-image: url('img/logo.png');
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page-bg: #101312;
+    --content-bg: #181c1b;
+    --content-border: rgba(255, 255, 255, 0.07);
+    --content-shadow: 0px 14px 36px rgba(0, 0, 0, 0.28);
+    --text-main: #eef3f2;
+    --text-body: #d7dddb;
+    --text-heading: #f1f5f4;
+    --text-muted: #9aa4a1;
+    --link: #28d0c1;
+    --accent: #00c2b3;
+    --accent-soft: rgba(0, 194, 179, 0.42);
+    --list-border: rgba(255, 255, 255, 0.1);
+    --list-hover-bg: rgba(255, 255, 255, 0.045);
+    --dash-border: rgba(255, 255, 255, 0.14);
+    --author-text: #bdc8c5;
+    --image-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    --logo-image: url('img/logo-dark.png');
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #101312;
+  --content-bg: #181c1b;
+  --content-border: rgba(255, 255, 255, 0.07);
+  --content-shadow: 0px 14px 36px rgba(0, 0, 0, 0.28);
+  --text-main: #eef3f2;
+  --text-body: #d7dddb;
+  --text-heading: #f1f5f4;
+  --text-muted: #9aa4a1;
+  --link: #28d0c1;
+  --accent: #00c2b3;
+  --accent-soft: rgba(0, 194, 179, 0.42);
+  --list-border: rgba(255, 255, 255, 0.1);
+  --list-hover-bg: rgba(255, 255, 255, 0.045);
+  --dash-border: rgba(255, 255, 255, 0.14);
+  --author-text: #bdc8c5;
+  --image-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  --logo-image: url('img/logo-dark.png');
 }
 
 /* --- 1. 全局设置 (字体与基础颜色) --- */
@@ -14,12 +79,11 @@ body {
   font-size: 17px;
   line-height: 1.82;
   letter-spacing: 0.012em;
-  background-color: #f5f5f5;
-  color: #1a1a1a;
+  background-color: var(--page-bg);
+  color: var(--text-main);
 }
 
 /* --- 2. Logo 样式 (PC端基础定义) --- */
-/* 🔴 之前丢失的就是这部分，现在补回来了 */
 #logo {
   position: fixed;
   top: 15px;
@@ -28,8 +92,7 @@ body {
   display: block;
   width: 100px;
   height: 100px;
-  /* 确保 img 文件夹里有 logo */
-  background-image: url('img/logo.png'); 
+  background-image: var(--logo-image);
   background-size: cover;
   background-repeat: no-repeat;
   outline: none;
@@ -45,8 +108,9 @@ body {
   width: 90%;
   max-width: 840px;
   padding: 30px;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--content-bg);
+  border: 1px solid var(--content-border);
+  box-shadow: var(--content-shadow);
   border-radius: 12px;
 }
 
@@ -56,7 +120,7 @@ h1, h2 {
   padding-left: 15px;
   font-weight: bold;
   line-height: 1.2;
-  color: #333;
+  color: var(--text-heading);
 }
 
 /* H1: 深色粗线 (观点/主标题) */
@@ -68,7 +132,7 @@ h1::before {
   transform: translateY(-50%);
   width: 4px;
   height: 26px;
-  background-color:#00C2B3;
+  background-color: var(--accent);
   border-radius: 2px;
 }
 
@@ -81,7 +145,7 @@ h2::before {
   transform: translateY(-50%);
   width: 2px;
   height: 18px;
-  background-color: rgba(0, 194, 179, 0.35); /* 半透明淡蓝 */
+  background-color: var(--accent-soft);
   border-radius: 1px;
 }
 
@@ -93,11 +157,11 @@ p {
   line-height: 1.82;
   margin-top: 10px;
   margin-bottom: 22px;
-  color: #333;
+  color: var(--text-body);
 }
 
 a {
-  color: #008F84;
+  color: var(--link);
   text-decoration: none;
   transition: opacity 0.2s;
 }
@@ -110,34 +174,73 @@ img {
   height: auto;
   margin-top: 20px;
   border-radius: 10px;
-  box-shadow: none; /* ✅ 这里的 none 确保了没有横线 */
+  box-shadow: var(--image-shadow);
 }
 
 /* --- 7. Words 列表样式 --- */
 .article-list { list-style: none; padding: 0; margin: 0; }
-.article-list li { border-bottom: 1px solid #eee; }
-.article-list li:has(img) { border-bottom: none; } /* 双重保险：有图不显示底线 */
+.article-list li { border-bottom: 1px solid var(--list-border); }
+.article-list li:has(img) { border-bottom: none; }
 .article-list li:last-child { border-bottom: none; }
 .article-list a {
   display: block;
   padding: 18px 5px;
   font-size: 18px;
-  color: #333;
+  color: var(--text-body);
   text-decoration: none;
   transition: padding-left 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
 .article-list a:hover {
-  background-color: #fafafa;
+  background-color: var(--list-hover-bg);
   padding-left: 10px;
 }
 
-/* --- 8. 底部版权 --- */
+/* 兼容少量页面里的内联浅色样式 */
+#content a[style*="color: #555"],
+#content p[style*="color: #555"] {
+  color: var(--author-text) !important;
+}
+
+#content div[style*="border-top"] {
+  border-top-color: var(--dash-border) !important;
+}
+
+#content img[style*="box-shadow"] {
+  box-shadow: var(--image-shadow) !important;
+}
+
+/* --- 8. 底部版权与主题切换 --- */
 #footer {
   text-align: center;
   margin-top: 30px;
   padding: 20px;
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
+}
+
+#footer a {
+  color: var(--link);
+}
+
+.theme-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--link);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 /* --- 9. 响应式与移动端适配 --- */
@@ -151,9 +254,9 @@ img {
     width: 80px;
     height: 80px;
   }
-  
+
   #content {
-    margin-top: 110px; /* 留出顶部 Logo 的垂直空间，防止重叠 */
+    margin-top: 110px;
     padding: 30px 25px;
   }
 }
@@ -162,9 +265,9 @@ img {
 @media (max-width: 767px) {
   #content {
     margin-top: 110px;
-    padding: 25px 18px; /* 减小内边距 */
+    padding: 25px 18px;
   }
-  
+
   h1 { font-size: 28px; }
   h2 { font-size: 24px; }
 }
