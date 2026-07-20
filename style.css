@@ -278,7 +278,7 @@ img {
 }
 
 .home-intro {
-  padding-bottom: 42px;
+  padding-bottom: 34px;
 }
 
 .home-kicker {
@@ -316,12 +316,11 @@ img {
 .home-groups {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 38px;
+  gap: 32px;
 }
 
 .home-group {
-  padding-top: 14px;
-  border-top: 1px solid var(--list-border);
+  padding-top: 0;
 }
 
 .home-group h2 {
@@ -341,10 +340,9 @@ img {
 .home-destination {
   position: relative;
   width: 100%;
-  min-height: 118px;
-  padding: 20px 38px 20px 0;
+  min-height: 96px;
+  padding: 14px 38px 14px 0;
   border: 0;
-  border-bottom: 1px solid var(--list-border);
   background: transparent;
   display: flex;
   flex-direction: column;
@@ -419,21 +417,24 @@ img {
   background: linear-gradient(110deg, transparent 25%, var(--list-hover-bg));
 }
 
+.home-destination + .home-destination {
+  margin-top: 2px;
+}
+
 .home-destination:active {
   opacity: 0.68;
   transform: scale(0.985);
 }
 
 .home-principle {
-  margin: 30px 0 0;
-  padding-bottom: 30px;
-  border-bottom: 1px solid var(--list-border);
+  margin: 24px 0 0;
+  padding-bottom: 14px;
   color: var(--text-muted);
   font-size: 14px;
 }
 
 .home-about {
-  min-height: 72px;
+  min-height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -597,7 +598,7 @@ img {
   }
 
   .home-intro {
-    padding-bottom: 34px;
+    padding-bottom: 28px;
   }
 
   .home-summary {
@@ -606,11 +607,16 @@ img {
 
   .home-groups {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 22px;
+  }
+
+  .home-group + .home-group {
+    padding-top: 22px;
+    border-top: 1px solid var(--list-border);
   }
 
   .home-destination {
-    min-height: 104px;
+    min-height: 88px;
     padding-right: 30px;
     gap: 4px;
   }
