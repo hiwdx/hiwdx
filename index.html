@@ -85,9 +85,8 @@
           <img class="home-code-image" src="img/hiwd-wordcard-mini-code.png" alt="hiwd 词卡小程序码" width="420" height="420">
         </div>
         <div class="home-sheet-copy">
-          <p class="home-kicker"><span></span>hiwd 词卡</p>
-          <h2 id="wordcard-title">看懂 AI 时代的新词</h2>
-          <p>微信扫码打开；在 iPhone 上可以长按识别小程序码。</p>
+          <h2 id="wordcard-title">hiwd 词卡</h2>
+          <p>看懂 AI 时代的新词。iPhone 上长按小程序码识别。</p>
         </div>
       </div>
     </dialog>
@@ -100,10 +99,9 @@
           <img class="home-code-image" src="img/qr.jpg" alt="Andrew 微信公众号二维码" width="258" height="258">
         </a>
         <div class="home-sheet-copy">
-          <p class="home-kicker"><span></span>Andrew</p>
-          <h2 id="wechat-title">在微信里继续读</h2>
-          <p>扫码关注公众号，或者直接打开公众号文章合集。</p>
-          <a class="home-sheet-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener">打开微信公众号 ↗</a>
+          <h2 id="wechat-title">Andrew 公众号</h2>
+          <p>微信扫码关注，或者直接阅读文章合集。</p>
+          <a class="home-sheet-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener">阅读文章合集 ↗</a>
         </div>
       </div>
     </dialog>
@@ -115,7 +113,7 @@
 
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
       || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    const wordcardScheme = 'weixin://dl/business/?appid=wxede77a1594ec7ea4&path=pages/index/index&env_version=release';
+    const wechatArticlesURL = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&action=getalbum&album_id=1345414793699835904#wechat_redirect';
 
     function wireSheet(dialogSelector, openSelector, closeSelector, iosURL) {
       const dialog = document.querySelector(dialogSelector);
@@ -149,8 +147,8 @@
       });
     }
 
-    wireSheet('[data-wordcard-dialog]', '[data-wordcard-open]', '[data-wordcard-close]', wordcardScheme);
-    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]');
+    wireSheet('[data-wordcard-dialog]', '[data-wordcard-open]', '[data-wordcard-close]');
+    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]', wechatArticlesURL);
     </script>
   </body>
 </html>
