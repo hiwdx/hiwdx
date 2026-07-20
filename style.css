@@ -351,9 +351,9 @@ img {
   border: 0;
   background: transparent;
   display: grid;
-  grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1.45fr) 18px;
+  grid-template-columns: max-content minmax(0, 1fr) 18px;
   align-items: center;
-  column-gap: 24px;
+  column-gap: clamp(22px, 4vw, 36px);
   color: var(--text-body);
   font: inherit;
   text-align: left;
