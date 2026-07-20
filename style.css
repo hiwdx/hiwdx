@@ -317,7 +317,7 @@ img {
 .home-groups {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 22px;
+  gap: 18px;
 }
 
 .home-group {
@@ -325,7 +325,7 @@ img {
 }
 
 .home-group + .home-group {
-  padding-top: 22px;
+  padding-top: 18px;
   border-top: 1px solid var(--list-border);
 }
 
@@ -346,15 +346,14 @@ img {
 .home-destination {
   position: relative;
   width: 100%;
-  min-height: 88px;
-  padding: 14px 30px 14px 0;
+  min-height: 80px;
+  padding: 12px 4px 12px 0;
   border: 0;
   background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1.45fr) 18px;
+  align-items: center;
+  column-gap: 24px;
   color: var(--text-body);
   font: inherit;
   text-align: left;
@@ -380,6 +379,16 @@ img {
   font-style: normal;
   font-weight: 650;
   letter-spacing: 0.05em;
+}
+
+.home-destination-name small {
+  margin-top: 3px;
+  display: block;
+  color: var(--link);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+  line-height: 1.5;
 }
 
 .home-destination-note {
@@ -415,8 +424,8 @@ img {
 }
 
 .home-arrow {
-  position: absolute;
-  right: 4px;
+  position: static;
+  justify-self: end;
   color: var(--link);
   font-size: 16px;
 }
@@ -620,6 +629,25 @@ img {
   .home-groups {
     grid-template-columns: 1fr;
     gap: 22px;
+  }
+
+  .home-group + .home-group {
+    padding-top: 22px;
+  }
+
+  .home-destination {
+    min-height: 88px;
+    padding: 14px 30px 14px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .home-arrow {
+    position: absolute;
+    right: 4px;
   }
 
   .home-about {
