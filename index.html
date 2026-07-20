@@ -115,7 +115,7 @@
 
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
       || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    const wechatProfileURL = 'weixin://dl/officialaccounts?scene=108&username=gh_83de0d4600df';
+    const wordcardScheme = 'weixin://dl/business/?appid=wxede77a1594ec7ea4&path=pages/index/index&env_version=release';
 
     function wireSheet(dialogSelector, openSelector, closeSelector, iosURL) {
       const dialog = document.querySelector(dialogSelector);
@@ -149,8 +149,8 @@
       });
     }
 
-    wireSheet('[data-wordcard-dialog]', '[data-wordcard-open]', '[data-wordcard-close]');
-    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]', wechatProfileURL);
+    wireSheet('[data-wordcard-dialog]', '[data-wordcard-open]', '[data-wordcard-close]', wordcardScheme);
+    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]');
     </script>
   </body>
 </html>
