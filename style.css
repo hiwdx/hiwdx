@@ -274,6 +274,7 @@ img {
 
 /* --- 10. 首页：分类与轻量内容预览 --- */
 .home-page .home-content {
+  max-width: 760px;
   padding: clamp(34px, 6vw, 56px);
 }
 
@@ -315,12 +316,17 @@ img {
 
 .home-groups {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 22px;
 }
 
 .home-group {
   padding-top: 0;
+}
+
+.home-group + .home-group {
+  padding-top: 22px;
+  border-top: 1px solid var(--list-border);
 }
 
 .home-group h2 {
@@ -340,22 +346,22 @@ img {
 .home-destination {
   position: relative;
   width: 100%;
-  min-height: 96px;
-  padding: 14px 38px 14px 0;
+  min-height: 88px;
+  padding: 14px 30px 14px 0;
   border: 0;
   background: transparent;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 7px;
+  gap: 4px;
   color: var(--text-body);
   font: inherit;
   text-align: left;
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: opacity 100ms ease-out, transform 100ms ease-out;
+  transition: none;
 }
 
 .home-destination-name {
@@ -363,7 +369,7 @@ img {
   font-size: 1.1875rem;
   font-weight: 650;
   letter-spacing: -0.018em;
-  transition: color 140ms ease-out;
+  transition: none;
 }
 
 .home-destination-name em {
@@ -425,7 +431,7 @@ img {
 
 .home-destination:active {
   opacity: 0.68;
-  transform: scale(0.985);
+  transform: none;
 }
 
 .home-principle {
@@ -596,10 +602,6 @@ img {
     opacity: 1;
   }
 
-  .home-destination:hover .home-destination-name {
-    color: var(--link);
-  }
-
   .home-about button:hover,
   .home-apple:hover {
     opacity: 0.7;
@@ -618,17 +620,6 @@ img {
   .home-groups {
     grid-template-columns: 1fr;
     gap: 22px;
-  }
-
-  .home-group + .home-group {
-    padding-top: 22px;
-    border-top: 1px solid var(--list-border);
-  }
-
-  .home-destination {
-    min-height: 88px;
-    padding-right: 30px;
-    gap: 4px;
   }
 
   .home-about {
@@ -677,7 +668,7 @@ img {
   }
 
   .home-destination {
-    transition: opacity 100ms linear;
+    transition: none;
   }
 }
 
