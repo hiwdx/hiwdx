@@ -3,47 +3,145 @@
   <head>
     <meta charset="UTF-8">
     <title>hiwd</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Andrew 的个人站点。文章放研究笔记和想法，Daily 是每日 AI 行业速报。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Andrew 的个人站点：文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
     <script src="/theme.js?v=20260702-1"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
+
     <meta property="og:title" content="hiwd - hi, world">
-    <meta property="og:description" content="Andrew 的个人站点。文章放研究笔记和想法，Daily 是每日 AI 行业速报。">
-    <meta property="og:image" content="https://hiwd.com/img/andrew.jpeg">
+    <meta property="og:description" content="文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
+    <meta property="og:image" content="https://hiwd.com/img/index.png">
     <meta property="og:url" content="https://hiwd.com/">
+    <link rel="canonical" href="https://hiwd.com/">
   </head>
-  <body>
+  <body class="home-page">
     <a href="https://hiwd.com/" id="logo"></a>
 
-    <div id="content">
-      <h1>欢迎来到hiwd</h1>
+    <main id="content" class="home-content">
+      <section class="home-intro" aria-labelledby="home-title">
+        <p class="home-kicker"><span></span>hi, world</p>
+        <h1 id="home-title">欢迎来到 hiwd</h1>
+        <p class="home-summary">这里放研究笔记、每日 AI 速报、金融数据，还有帮助你看懂 AI 时代新词的词卡。</p>
+      </section>
 
-      <p>hiwd —— hi, world</p>
-      <p><strong>文章平台</strong>（<a href="https://hiwd.com/words.html">hiwd.com/words.html</a>）— 研究笔记、想法和生活观察。不追热点，写什么是因为觉得值得留下来。文章长期在这里，不会消失。</p>
+      <div class="home-groups" aria-label="hiwd 的内容">
+        <section class="home-group" aria-labelledby="reading-title">
+          <h2 id="reading-title">阅读</h2>
 
-      <p><strong>daily</strong>（<a href="https://daily.hiwd.com/" target="_blank">daily.hiwd.com</a>）— 每日 AI 行业速报。每天从大量信息里筛出几条真正值得看的，说清楚发生了什么、为什么重要。</p>
+          <a class="home-destination" href="andrew/teardown-words-console.html">
+            <span class="home-destination-name">文章平台</span>
+            <span class="home-destination-note">
+              <small>最近更新</small>
+              我把刚造好的文章后台拆了
+            </span>
+            <span class="home-arrow" aria-hidden="true">↗</span>
+          </a>
 
-      <p><strong>data</strong>（<a href="https://data.hiwd.com/" target="_blank">data.hiwd.com</a>）— 金融数据看板。ETF 溢价监控、跨境套利信号、全球宏观数据锚点，供个人投资者参考，不构成投资建议。</p>
+          <a class="home-destination" href="https://daily.hiwd.com/" target="_blank" rel="noopener">
+            <span class="home-destination-name">daily</span>
+            <span class="home-destination-note">每天筛出几条真正值得看的 AI 变化</span>
+            <span class="home-arrow" aria-hidden="true">↗</span>
+          </a>
+        </section>
 
-      <p>站点用纯 HTML 文件搭建，没有推荐算法，没有追踪。打开，读，就这样。</p>
+        <section class="home-group" aria-labelledby="tools-title">
+          <h2 id="tools-title">工具</h2>
 
-      <p>Andrew · <a href="andrew.html">about</a>, April 2023</p>
-      
-      <a href="https://hiwd.com/words.html">
-  <img src="img/index.png" 
-       alt="安藤忠雄的青苹果" 
-       width="500" 
-       height="500" 
-       loading="lazy">
-</a>
-    </div>
+          <a class="home-destination" href="https://data.hiwd.com/" target="_blank" rel="noopener">
+            <span class="home-destination-name">data</span>
+            <span class="home-destination-note">个人投资者的金融数据与市场锚点</span>
+            <span class="home-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <button class="home-destination home-destination-button home-wordcard" type="button" data-wordcard-open>
+            <span class="home-destination-name">hiwd 词卡 <em>new</em></span>
+            <span class="home-destination-note home-word-sample">
+              <small>翻开一张</small>
+              <strong>AI Agent</strong>
+              <span>能拆任务、用工具并执行动作的 AI</span>
+            </span>
+            <span class="home-arrow" aria-hidden="true">→</span>
+          </button>
+        </section>
+      </div>
+
+      <p class="home-principle">没有推荐算法，没有追踪。打开，读，就这样。</p>
+
+      <div class="home-about">
+        <div>Andrew · <a href="andrew.html">about</a></div>
+        <button type="button" data-wechat-open>微信公众号</button>
+      </div>
+
+      <a class="home-apple" href="words.html" aria-label="阅读文章">
+        <img src="img/index.png" alt="安藤忠雄的青苹果" width="112" height="107" loading="lazy">
+      </a>
+    </main>
+
+    <dialog class="home-sheet" data-wordcard-dialog aria-labelledby="wordcard-title">
+      <div class="home-sheet-panel">
+        <div class="home-sheet-handle" aria-hidden="true"></div>
+        <button class="home-sheet-close" type="button" aria-label="关闭" data-wordcard-close>×</button>
+        <div class="home-code-wrap">
+          <img class="home-code-image" src="img/hiwd-wordcard-mini-code.png" alt="hiwd 词卡小程序码" width="420" height="420">
+        </div>
+        <div class="home-sheet-copy">
+          <p class="home-kicker"><span></span>hiwd 词卡</p>
+          <h2 id="wordcard-title">看懂 AI 时代的新词</h2>
+          <p>微信扫码打开；在 iPhone 上可以长按识别小程序码。</p>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="home-sheet" data-wechat-dialog aria-labelledby="wechat-title">
+      <div class="home-sheet-panel">
+        <div class="home-sheet-handle" aria-hidden="true"></div>
+        <button class="home-sheet-close" type="button" aria-label="关闭" data-wechat-close>×</button>
+        <a class="home-code-wrap" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener" aria-label="打开 Andrew 的微信公众号文章">
+          <img class="home-code-image" src="img/qr.jpg" alt="Andrew 微信公众号二维码" width="258" height="258">
+        </a>
+        <div class="home-sheet-copy">
+          <p class="home-kicker"><span></span>Andrew</p>
+          <h2 id="wechat-title">在微信里继续读</h2>
+          <p>扫码关注公众号，或者直接打开公众号文章合集。</p>
+          <a class="home-sheet-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener">打开微信公众号 ↗</a>
+        </div>
+      </div>
+    </dialog>
 
     <script>
     fetch('/footer.html')
       .then(response => response.text())
       .then(data => document.body.insertAdjacentHTML('beforeend', data));
+
+    function wireSheet(dialogSelector, openSelector, closeSelector) {
+      const dialog = document.querySelector(dialogSelector);
+      const openButton = document.querySelector(openSelector);
+      const closeButton = document.querySelector(closeSelector);
+
+      function closeSheet() {
+        if (typeof dialog.close === 'function') {
+          dialog.close();
+        } else {
+          dialog.removeAttribute('open');
+        }
+      }
+
+      openButton.addEventListener('click', () => {
+        if (typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute('open', '');
+        }
+      });
+
+      closeButton.addEventListener('click', closeSheet);
+      dialog.addEventListener('click', event => {
+        if (event.target === dialog) closeSheet();
+      });
+    }
+
+    wireSheet('[data-wordcard-dialog]', '[data-wordcard-open]', '[data-wordcard-close]');
+    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]');
     </script>
-   
   </body>
 </html>
