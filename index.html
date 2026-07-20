@@ -19,7 +19,7 @@
 
     <main id="content" class="home-content">
       <section class="home-intro" aria-labelledby="home-title">
-        <p class="home-kicker"><span></span>hi, world</p>
+        <p class="home-kicker">hi, world</p>
         <h1 id="home-title">欢迎来到 hiwd</h1>
         <p class="home-summary">这里放研究笔记、每日 AI 速报、金融数据，还有帮助你看懂 AI 时代新词的词卡。</p>
       </section>
@@ -73,7 +73,7 @@
       </div>
 
       <a class="home-apple" href="words.html" aria-label="阅读文章">
-        <img src="img/index.png" alt="安藤忠雄的青苹果" width="112" height="107" loading="lazy">
+        <img src="img/index.png" alt="安藤忠雄的青苹果" width="500" height="500" loading="lazy">
       </a>
     </main>
 
@@ -113,7 +113,11 @@
       .then(response => response.text())
       .then(data => document.body.insertAdjacentHTML('beforeend', data));
 
-    function wireSheet(dialogSelector, openSelector, closeSelector) {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const wechatProfileURL = 'weixin://dl/officialaccounts?scene=108&username=gh_83de0d4600df';
+
+    function wireSheet(dialogSelector, openSelector, closeSelector, iosURL) {
       const dialog = document.querySelector(dialogSelector);
       const openButton = document.querySelector(openSelector);
       const closeButton = document.querySelector(closeSelector);
@@ -127,6 +131,11 @@
       }
 
       openButton.addEventListener('click', () => {
+        if (isIOS && iosURL) {
+          window.location.assign(iosURL);
+          return;
+        }
+
         if (typeof dialog.showModal === 'function') {
           dialog.showModal();
         } else {
@@ -141,7 +150,7 @@
     }
 
     wireSheet('[data-wordcard-dialog]', '[data-wordcard-open]', '[data-wordcard-close]');
-    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]');
+    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]', wechatProfileURL);
     </script>
   </body>
 </html>
