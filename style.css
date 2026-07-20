@@ -273,13 +273,17 @@ img {
 }
 
 /* --- 10. 首页：分类与轻量内容预览 --- */
-.home-page .home-content {
-  max-width: 760px;
-  padding: clamp(34px, 6vw, 56px);
+body.home-page #content.home-content {
+  max-width: 840px;
+  padding: 20px 0 36px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .home-intro {
-  padding-bottom: 34px;
+  padding-bottom: 44px;
 }
 
 .home-kicker {
@@ -317,7 +321,7 @@ img {
 .home-groups {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  gap: 48px;
 }
 
 .home-group {
@@ -330,7 +334,7 @@ img {
 }
 
 .home-group h2 {
-  margin: 0 0 8px;
+  margin: 0 0 16px;
   padding: 0;
   color: var(--text-muted);
   font-size: 0.8125rem;
@@ -344,17 +348,16 @@ img {
 }
 
 .home-destination {
-  position: relative;
   width: 100%;
-  min-height: 112px;
-  padding: 14px 32px 14px 0;
+  min-height: 94px;
+  padding: 14px 0;
   border: 0;
   background: transparent;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   color: var(--text-body);
   font: inherit;
   text-align: left;
@@ -370,7 +373,7 @@ img {
   border: 0;
   background: transparent;
   color: var(--text-heading);
-  font-size: 1.1875rem;
+  font-size: 1.25rem;
   font-weight: 650;
   font-family: inherit;
   line-height: inherit;
@@ -391,33 +394,18 @@ img {
   letter-spacing: 0.05em;
 }
 
+.home-inline-arrow {
+  margin-left: 4px;
+  color: var(--link);
+  font-size: 0.82em;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
 .home-destination-note {
   color: var(--text-muted);
   font-size: 1.0625rem;
   line-height: 1.55;
-}
-
-.home-destination-note small {
-  margin-bottom: 3px;
-  display: block;
-  color: var(--link);
-  font-size: 0.8125rem;
-  font-weight: 650;
-  letter-spacing: 0.07em;
-}
-
-.home-arrow {
-  position: absolute;
-  top: 18px;
-  right: 4px;
-  color: var(--link);
-  font-size: 16px;
-  line-height: 1;
-  padding: 8px;
-  border: 0;
-  background: transparent;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .home-wordcard {
@@ -428,15 +416,14 @@ img {
   margin-top: 2px;
 }
 
-.home-destination-name:active,
-.home-arrow:active {
+.home-destination-name:active {
   opacity: 0.68;
   transform: none;
 }
 
 .home-principle {
-  margin: 24px 0 0;
-  padding-bottom: 14px;
+  margin: 32px 0 0;
+  padding-bottom: 8px;
   color: var(--text-muted);
   font-size: 1.0625rem;
 }
@@ -592,8 +579,7 @@ img {
 
 .home-sheet-close:focus-visible,
 .home-about button:focus-visible,
-.home-destination-name:focus-visible,
-.home-arrow:focus-visible {
+.home-destination-name:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
@@ -603,8 +589,7 @@ img {
     opacity: 1;
   }
 
-  .home-destination-name:hover,
-  .home-arrow:hover {
+  .home-destination-name:hover {
     opacity: 1;
   }
 
@@ -615,37 +600,32 @@ img {
 }
 
 @media (max-width: 767px) {
-  .home-page .home-content {
-    padding: 30px 22px 24px;
+  body.home-page #content.home-content {
+    padding: 14px 0 24px;
   }
 
   .home-intro {
-    padding-bottom: 28px;
+    padding-bottom: 34px;
   }
 
   .home-groups {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 28px;
   }
 
   .home-group + .home-group {
-    padding-top: 22px;
-    border-top: 1px solid var(--list-border);
+    padding-top: 0;
+    border-top: 0;
   }
 
   .home-destination {
-    min-height: 88px;
-    padding: 14px 30px 14px 0;
+    min-height: 86px;
+    padding: 12px 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 4px;
-  }
-
-  .home-arrow {
-    position: absolute;
-    right: 4px;
   }
 
   .home-about {
