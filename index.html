@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Andrew 的个人站点：文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
     <script src="/theme.js?v=20260702-1"></script>
-    <link rel="stylesheet" type="text/css" href="style.css?v=20260720-6">
+    <link rel="stylesheet" type="text/css" href="style.css?v=20260720-7">
 
     <meta property="og:title" content="hiwd - hi, world">
     <meta property="og:description" content="文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
@@ -28,45 +28,45 @@
         <section class="home-group" aria-labelledby="reading-title">
           <h2 id="reading-title">阅读</h2>
 
-          <a class="home-destination" href="andrew/teardown-words-console.html">
-            <span class="home-destination-name">文章平台</span>
+          <div class="home-destination">
+            <a class="home-destination-name" href="andrew/teardown-words-console.html">文章平台</a>
             <span class="home-destination-note">
               <small>最近更新</small>
               我把刚造好的文章后台拆了
             </span>
-            <span class="home-arrow" aria-hidden="true">↗</span>
-          </a>
+            <a class="home-arrow" href="andrew/teardown-words-console.html" aria-label="打开文章平台">↗</a>
+          </div>
 
-          <a class="home-destination" href="https://daily.hiwd.com/" target="_blank" rel="noopener">
-            <span class="home-destination-name">daily</span>
+          <div class="home-destination">
+            <a class="home-destination-name" href="https://daily.hiwd.com/" target="_blank" rel="noopener">daily</a>
             <span class="home-destination-note">
               <small>每日更新</small>
               每天筛出几条真正值得看的 AI 变化
             </span>
-            <span class="home-arrow" aria-hidden="true">↗</span>
-          </a>
+            <a class="home-arrow" href="https://daily.hiwd.com/" target="_blank" rel="noopener" aria-label="打开 daily">↗</a>
+          </div>
         </section>
 
         <section class="home-group" aria-labelledby="tools-title">
           <h2 id="tools-title">工具</h2>
 
-          <a class="home-destination" href="https://data.hiwd.com/" target="_blank" rel="noopener">
-            <span class="home-destination-name">data</span>
+          <div class="home-destination">
+            <a class="home-destination-name" href="https://data.hiwd.com/" target="_blank" rel="noopener">data</a>
             <span class="home-destination-note">
               <small>市场锚点</small>
               个人投资者的金融数据与市场锚点
             </span>
-            <span class="home-arrow" aria-hidden="true">↗</span>
-          </a>
+            <a class="home-arrow" href="https://data.hiwd.com/" target="_blank" rel="noopener" aria-label="打开 data">↗</a>
+          </div>
 
-          <button class="home-destination home-destination-button home-wordcard" type="button" data-wordcard-open>
-            <span class="home-destination-name">hiwd 词卡 <em>new</em></span>
+          <div class="home-destination home-wordcard">
+            <button class="home-destination-name home-destination-action" type="button" data-wordcard-open>hiwd 词卡 <em>new</em></button>
             <span class="home-destination-note home-word-sample">
               <small>翻开一张 · AI Agent</small>
               能拆任务、用工具并执行动作的 AI
             </span>
-            <span class="home-arrow" aria-hidden="true">→</span>
-          </button>
+            <button class="home-arrow home-destination-action" type="button" data-wordcard-open aria-label="打开 hiwd 词卡">→</button>
+          </div>
         </section>
       </div>
 
@@ -122,7 +122,7 @@
 
     function wireSheet(dialogSelector, openSelector, closeSelector, iosURL) {
       const dialog = document.querySelector(dialogSelector);
-      const openButton = document.querySelector(openSelector);
+      const openButtons = document.querySelectorAll(openSelector);
       const closeButton = document.querySelector(closeSelector);
 
       function closeSheet() {
@@ -133,18 +133,20 @@
         }
       }
 
-      openButton.addEventListener('click', () => {
-        if (isIOS && iosURL) {
-          window.location.assign(iosURL);
-          return;
-        }
+      openButtons.forEach(openButton => {
+        openButton.addEventListener('click', () => {
+          if (isIOS && iosURL) {
+            window.location.assign(iosURL);
+            return;
+          }
 
-        if (typeof dialog.showModal === 'function') {
-          dialog.showModal();
-          dialog.focus({ preventScroll: true });
-        } else {
-          dialog.setAttribute('open', '');
-        }
+          if (typeof dialog.showModal === 'function') {
+            dialog.showModal();
+            dialog.focus({ preventScroll: true });
+          } else {
+            dialog.setAttribute('open', '');
+          }
+        });
       });
 
       closeButton.addEventListener('click', closeSheet);

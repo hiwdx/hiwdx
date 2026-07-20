@@ -359,20 +359,25 @@ img {
   font: inherit;
   text-align: left;
   text-decoration: none;
-  cursor: pointer;
+  cursor: default;
   -webkit-tap-highlight-color: transparent;
   transition: none;
 }
 
-.home-destination > * {
-  pointer-events: none;
-}
-
 .home-destination-name {
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--text-heading);
   font-size: 1.1875rem;
   font-weight: 650;
+  font-family: inherit;
+  line-height: inherit;
   letter-spacing: -0.018em;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
   transition: none;
 }
 
@@ -407,6 +412,12 @@ img {
   right: 4px;
   color: var(--link);
   font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .home-wordcard {
@@ -417,7 +428,8 @@ img {
   margin-top: 2px;
 }
 
-.home-destination:active {
+.home-destination-name:active,
+.home-arrow:active {
   opacity: 0.68;
   transform: none;
 }
@@ -580,13 +592,19 @@ img {
 
 .home-sheet-close:focus-visible,
 .home-about button:focus-visible,
-.home-destination:focus-visible {
+.home-destination-name:focus-visible,
+.home-arrow:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 @media (hover: hover) {
   .home-destination:hover {
+    opacity: 1;
+  }
+
+  .home-destination-name:hover,
+  .home-arrow:hover {
     opacity: 1;
   }
 
