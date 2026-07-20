@@ -364,6 +364,10 @@ img {
   transition: none;
 }
 
+.home-destination > * {
+  pointer-events: none;
+}
+
 .home-destination-name {
   color: var(--text-heading);
   font-size: 1.1875rem;
