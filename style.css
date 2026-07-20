@@ -355,7 +355,7 @@ img {
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: opacity 100ms ease-out, transform 100ms ease-out, background-color 180ms ease;
+  transition: opacity 100ms ease-out, transform 100ms ease-out;
 }
 
 .home-destination-name {
@@ -363,6 +363,7 @@ img {
   font-size: 1.1875rem;
   font-weight: 650;
   letter-spacing: -0.018em;
+  transition: color 140ms ease-out;
 }
 
 .home-destination-name em {
@@ -415,7 +416,7 @@ img {
 }
 
 .home-wordcard {
-  background: linear-gradient(110deg, transparent 25%, var(--list-hover-bg));
+  background: transparent;
 }
 
 .home-destination + .home-destination {
@@ -469,8 +470,8 @@ img {
 }
 
 .home-sheet {
-  width: min(650px, calc(100% - 32px));
-  max-width: 650px;
+  width: min(390px, calc(100% - 32px));
+  max-width: 390px;
   padding: 0;
   overflow: visible;
   border: 1px solid var(--content-border);
@@ -484,6 +485,10 @@ img {
 
 .home-sheet[open] {
   animation: home-sheet-in 280ms cubic-bezier(0.2, 0.85, 0.2, 1) forwards;
+}
+
+.home-sheet:focus {
+  outline: none;
 }
 
 .home-sheet::backdrop {
@@ -501,11 +506,11 @@ img {
 
 .home-sheet-panel {
   position: relative;
-  padding: 44px;
+  padding: 36px 32px 30px;
   display: grid;
-  grid-template-columns: 174px minmax(0, 1fr);
+  grid-template-columns: 1fr;
   align-items: center;
-  gap: 38px;
+  gap: 18px;
 }
 
 .home-sheet-handle {
@@ -531,7 +536,9 @@ img {
 }
 
 .home-code-wrap {
+  width: 148px;
   aspect-ratio: 1;
+  margin-inline: auto;
   padding: 8px;
   border-radius: 16px;
   background: #f5f5f5;
@@ -552,6 +559,10 @@ img {
   padding: 0;
   font-size: 1.5rem;
   letter-spacing: -0.04em;
+}
+
+.home-sheet-copy {
+  text-align: center;
 }
 
 .home-sheet-copy h2::before {
@@ -582,9 +593,11 @@ img {
 
 @media (hover: hover) {
   .home-destination:hover {
-    padding-left: 10px;
-    background: var(--list-hover-bg);
     opacity: 1;
+  }
+
+  .home-destination:hover .home-destination-name {
+    color: var(--link);
   }
 
   .home-about button:hover,
@@ -652,15 +665,6 @@ img {
     background: var(--list-border);
     display: block;
     transform: translateX(-50%);
-  }
-
-  .home-code-wrap {
-    width: 148px;
-    margin-inline: auto;
-  }
-
-  .home-sheet-copy {
-    text-align: center;
   }
 
 }
