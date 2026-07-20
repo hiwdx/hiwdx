@@ -273,6 +273,10 @@ img {
 }
 
 /* --- 10. 首页：分类与轻量内容预览 --- */
+body.home-page {
+  background-color: var(--content-bg);
+}
+
 body.home-page #content.home-content {
   max-width: 840px;
   padding: 20px 0 36px;
