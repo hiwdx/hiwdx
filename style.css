@@ -427,8 +427,8 @@ body.home-page #content.home-content {
   min-height: 56px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 28px;
   color: var(--text-body);
   font-size: 1.0625rem;
 }
