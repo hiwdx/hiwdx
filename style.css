@@ -429,12 +429,13 @@ body.home-page #content.home-content {
   cursor: pointer;
 }
 
+/* 大图默认隐藏（桌面/平板），仅移动端满宽展示 */
 .home-apple {
   width: min(500px, 100%);
   height: auto;
   margin: 24px auto 0;
   border-radius: 10px;
-  display: block;
+  display: none;
 }
 
 .home-apple img {
@@ -599,6 +600,10 @@ body.home-page #content.home-content {
 
   .portal-cta {
     margin-top: 14px;
+  }
+
+  .home-apple {
+    display: block;
   }
 
   .home-about {
