@@ -322,73 +322,41 @@ body.home-page #content.home-content {
   font-size: 1.0625rem;
 }
 
-.home-groups {
+/* 入口卡片网格：桌面 2×2，窄屏单列堆叠 */
+.portals {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
+  gap: 16px;
 }
 
-.home-group {
-  padding-top: 0;
-}
-
-.home-group + .home-group {
-  padding-top: 0;
-  border-top: 0;
-}
-
-.home-group h2 {
-  margin: 0 0 16px;
-  padding: 0;
-  color: var(--text-muted);
-  font-size: 0.8125rem;
-  font-weight: 650;
-  letter-spacing: 0.12em;
-  line-height: 1.5;
-}
-
-.home-group h2::before {
-  display: none;
-}
-
-.home-destination {
-  width: 100%;
-  min-height: 94px;
-  padding: 14px 0;
-  border: 0;
-  background: transparent;
+.portal-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  gap: 6px;
+  width: 100%;
+  margin: 0;
+  padding: 22px 22px 20px;
+  border: 1px solid var(--list-border);
+  border-radius: 16px;
+  background: var(--list-hover-bg);
   color: var(--text-body);
   font: inherit;
   text-align: left;
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+              border-color 0.22s ease;
 }
 
-.home-destination-name {
-  width: fit-content;
-  padding: 0;
-  border: 0;
-  background: transparent;
+.portal-name {
   color: var(--text-heading);
   font-size: 1.25rem;
   font-weight: 650;
-  font-family: inherit;
-  line-height: inherit;
   letter-spacing: -0.018em;
-  text-align: left;
-  text-decoration: none;
-  cursor: pointer;
-  transition: none;
 }
 
-.home-destination-name em {
+.portal-name em {
   margin-left: 6px;
   color: var(--link);
   font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -398,31 +366,38 @@ body.home-page #content.home-content {
   letter-spacing: 0.05em;
 }
 
-.home-inline-arrow {
-  margin-left: 4px;
-  color: var(--link);
-  font-size: 0.82em;
-  font-weight: 650;
-  letter-spacing: 0;
-}
-
-.home-destination-note {
+.portal-domain {
+  margin-top: 4px;
   color: var(--text-muted);
-  font-size: 1.0625rem;
-  line-height: 1.55;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
 }
 
-.home-wordcard {
-  background: transparent;
+.portal-desc {
+  flex: 1 1 auto;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 0.975rem;
+  line-height: 1.6;
 }
 
-.home-destination + .home-destination {
-  margin-top: 2px;
+.portal-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  color: var(--link);
+  font-size: 0.95rem;
+  font-weight: 650;
 }
 
-.home-destination-name:active {
-  opacity: 0.68;
-  transform: none;
+.portal-chevron {
+  transition: transform 0.22s ease;
+}
+
+.portal-card:active {
+  transform: translateY(-1px);
 }
 
 .home-principle {
@@ -453,10 +428,10 @@ body.home-page #content.home-content {
 }
 
 .home-apple {
-  width: min(500px, 100%);
+  width: min(220px, 62%);
   height: auto;
-  margin-top: 12px;
-  border-radius: 10px;
+  margin: 40px auto 0;
+  border-radius: 14px;
   display: block;
 }
 
@@ -583,18 +558,20 @@ body.home-page #content.home-content {
 
 .home-sheet-close:focus-visible,
 .home-about button:focus-visible,
-.home-destination-name:focus-visible {
+.portal-card:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 @media (hover: hover) {
-  .home-destination:hover {
-    opacity: 1;
+  .portal-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-soft);
+    box-shadow: var(--content-shadow);
   }
 
-  .home-destination-name:hover {
-    opacity: 1;
+  .portal-card:hover .portal-chevron {
+    transform: translateX(4px);
   }
 
   .home-about button:hover,
@@ -609,27 +586,29 @@ body.home-page #content.home-content {
   }
 
   .home-intro {
-    padding-bottom: 34px;
+    padding-bottom: 30px;
   }
 
-  .home-groups {
+  .portals {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 12px;
   }
 
-  .home-group + .home-group {
-    padding-top: 0;
-    border-top: 0;
+  .portal-card {
+    padding: 20px 18px;
   }
 
-  .home-destination {
-    min-height: 86px;
-    padding: 12px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 4px;
+  .portal-desc {
+    margin-top: 10px;
+  }
+
+  .portal-arrow {
+    margin-top: 14px;
+  }
+
+  .home-apple {
+    width: min(200px, 70%);
+    margin-top: 30px;
   }
 
   .home-about {
@@ -677,7 +656,7 @@ body.home-page #content.home-content {
     transform: none;
   }
 
-  .home-destination {
+  .portal-card {
     transition: none;
   }
 }

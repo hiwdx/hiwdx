@@ -19,40 +19,40 @@
 
     <main id="content" class="home-content">
       <section class="home-intro" aria-labelledby="home-title">
-        <p class="home-kicker">hi, world</p>
+        <p class="home-kicker"><span aria-hidden="true"></span>hi, world</p>
         <h1 id="home-title">欢迎来到 hiwd</h1>
         <p class="home-summary">这里放研究笔记、每日 AI 速报、金融数据，还有帮助你看懂 AI 时代新词的词卡。</p>
       </section>
 
-      <div class="home-groups" aria-label="hiwd 的内容">
-        <section class="home-group" aria-labelledby="reading-title">
-          <h2 id="reading-title">阅读</h2>
+      <nav class="portals" aria-label="hiwd 的内容">
+        <a class="portal-card" href="words.html">
+          <span class="portal-name">文章平台</span>
+          <span class="portal-domain">hiwd.com/words</span>
+          <span class="portal-desc">研究笔记、想法与生活观察。不追热点，写值得留下来的。</span>
+          <span class="portal-arrow">进入<span class="portal-chevron" aria-hidden="true">→</span></span>
+        </a>
 
-          <div class="home-destination">
-            <a class="home-destination-name" href="words.html">文章平台 <span class="home-inline-arrow" aria-hidden="true">↗</span></a>
-            <span class="home-destination-note">我把刚造好的文章后台拆了</span>
-          </div>
+        <a class="portal-card" href="https://daily.hiwd.com/" target="_blank" rel="noopener">
+          <span class="portal-name">daily</span>
+          <span class="portal-domain">daily.hiwd.com</span>
+          <span class="portal-desc">每天从海量信息里筛出几条真正值得看的 AI 变化。</span>
+          <span class="portal-arrow">访问<span class="portal-chevron" aria-hidden="true">↗</span></span>
+        </a>
 
-          <div class="home-destination">
-            <a class="home-destination-name" href="https://daily.hiwd.com/" target="_blank" rel="noopener">daily <span class="home-inline-arrow" aria-hidden="true">↗</span></a>
-            <span class="home-destination-note">每天筛出几条真正值得看的 AI 变化</span>
-          </div>
-        </section>
+        <a class="portal-card" href="https://data.hiwd.com/" target="_blank" rel="noopener">
+          <span class="portal-name">data</span>
+          <span class="portal-domain">data.hiwd.com</span>
+          <span class="portal-desc">个人投资者的金融数据看板与市场锚点。</span>
+          <span class="portal-arrow">访问<span class="portal-chevron" aria-hidden="true">↗</span></span>
+        </a>
 
-        <section class="home-group" aria-labelledby="tools-title">
-          <h2 id="tools-title">工具</h2>
-
-          <div class="home-destination">
-            <a class="home-destination-name" href="https://data.hiwd.com/" target="_blank" rel="noopener">data <span class="home-inline-arrow" aria-hidden="true">↗</span></a>
-            <span class="home-destination-note">个人投资者的金融数据与市场锚点</span>
-          </div>
-
-          <div class="home-destination home-wordcard">
-            <button class="home-destination-name home-destination-action" type="button" data-wordcard-open>hiwd 词卡 <em>new</em> <span class="home-inline-arrow" aria-hidden="true">→</span></button>
-            <span class="home-destination-note home-word-sample">AI Agent · 能拆任务、用工具并执行动作的 AI</span>
-          </div>
-        </section>
-      </div>
+        <button class="portal-card portal-card-action" type="button" data-wordcard-open>
+          <span class="portal-name">hiwd 词卡 <em>new</em></span>
+          <span class="portal-domain">微信小程序</span>
+          <span class="portal-desc">看懂 AI 时代的新词。例：AI Agent —— 能拆任务、用工具并执行动作的 AI。</span>
+          <span class="portal-arrow">打开<span class="portal-chevron" aria-hidden="true">→</span></span>
+        </button>
+      </nav>
 
       <p class="home-principle">没有推荐算法，没有追踪。打开，读，就这样。</p>
 
