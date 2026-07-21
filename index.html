@@ -17,26 +17,37 @@
     <a href="https://hiwd.com/" id="logo"></a>
 
     <div id="content">
-      <h1>欢迎来到hiwd</h1>
+      <h1>hi, world</h1>
 
-      <p>hiwd —— hi, world</p>
-      <p><strong>文章平台</strong>（<a href="https://hiwd.com/words.html">hiwd.com/words.html</a>）— 研究笔记、想法和生活观察。不追热点，写什么是因为觉得值得留下来。文章长期在这里，不会消失。</p>
+      <p class="lead">hiwd 是 Andrew 的个人站点。纯手写 HTML，没有推荐算法，没有追踪——打开，读，就这样。</p>
 
-      <p><strong>daily</strong>（<a href="https://daily.hiwd.com/" target="_blank">daily.hiwd.com</a>）— 每日 AI 行业速报。每天从大量信息里筛出几条真正值得看的，说清楚发生了什么、为什么重要。</p>
+      <nav class="portals" aria-label="站点导航">
+        <a class="portal-card" href="https://hiwd.com/words.html">
+          <span class="portal-name">words</span>
+          <span class="portal-domain">hiwd.com/words</span>
+          <span class="portal-desc">研究笔记、想法与生活观察。不追热点，写值得留下来的。</span>
+          <span class="portal-arrow">进入<span class="portal-chevron">→</span></span>
+        </a>
+        <a class="portal-card" href="https://daily.hiwd.com/" target="_blank" rel="noopener">
+          <span class="portal-name">daily</span>
+          <span class="portal-domain">daily.hiwd.com</span>
+          <span class="portal-desc">每日 AI 行业速报。从海量信息里筛出几条真正值得看的。</span>
+          <span class="portal-arrow">进入<span class="portal-chevron">→</span></span>
+        </a>
+        <a class="portal-card" href="https://data.hiwd.com/" target="_blank" rel="noopener">
+          <span class="portal-name">data</span>
+          <span class="portal-domain">data.hiwd.com</span>
+          <span class="portal-desc">金融数据看板。ETF 溢价、跨境套利信号、全球宏观锚点。</span>
+          <span class="portal-arrow">进入<span class="portal-chevron">→</span></span>
+        </a>
+      </nav>
 
-      <p><strong>data</strong>（<a href="https://data.hiwd.com/" target="_blank">data.hiwd.com</a>）— 金融数据看板。ETF 溢价监控、跨境套利信号、全球宏观数据锚点，供个人投资者参考，不构成投资建议。</p>
-
-      <p>站点用纯 HTML 文件搭建，没有推荐算法，没有追踪。打开，读，就这样。</p>
-
-      <p>Andrew · <a href="andrew.html">about</a>, April 2023</p>
-      
-      <a href="https://hiwd.com/words.html">
-  <img src="img/index.png" 
-       alt="安藤忠雄的青苹果" 
-       width="500" 
-       height="500" 
-       loading="lazy">
-</a>
+      <div class="home-outro">
+        <a class="outro-image" href="https://hiwd.com/words.html" aria-label="进入文章平台">
+          <img src="img/index.png" alt="安藤忠雄的青苹果" width="200" height="200" loading="lazy">
+        </a>
+        <p class="home-sign">Andrew · <a href="andrew.html">about</a> · April 2023</p>
+      </div>
     </div>
 
     <script>

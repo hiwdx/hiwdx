@@ -243,6 +243,119 @@ img {
   border-radius: 3px;
 }
 
+/* --- 8b. 首页：导语 / 入口卡片 / 收尾 --- */
+
+/* 导语：比正文略大，作为副标题承接 h1 */
+.lead {
+  font-size: 18.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-top: 6px;
+  margin-bottom: 36px;
+  max-width: 60ch;
+}
+
+/* 三个站点入口的网格：桌面并排，移动端堆叠 */
+.portals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0;
+}
+
+.portal-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px;
+  border: 1px solid var(--list-border);
+  border-radius: 14px;
+  background-color: var(--list-hover-bg);
+  color: var(--text-body);
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+              border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-soft);
+  background-color: var(--content-bg);
+  box-shadow: var(--content-shadow);
+  opacity: 1; /* 覆盖全局 a:hover 的 opacity */
+}
+
+.portal-name {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+}
+
+.portal-domain {
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.portal-desc {
+  flex: 1 1 auto;
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--text-body);
+}
+
+.portal-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--link);
+}
+
+.portal-chevron {
+  transition: transform 0.22s ease;
+}
+
+.portal-card:hover .portal-chevron {
+  transform: translateX(4px);
+}
+
+/* 收尾：缩小的青苹果 + 署名，居中安静收束 */
+.home-outro {
+  margin-top: 44px;
+  padding-top: 34px;
+  border-top: 1px solid var(--list-border);
+  text-align: center;
+}
+
+.outro-image {
+  display: inline-block;
+}
+
+.outro-image img {
+  width: 200px;
+  height: 200px;
+  margin-top: 0;
+  border-radius: 14px;
+  box-shadow: var(--image-shadow);
+}
+
+.home-sign {
+  margin-top: 18px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.home-sign a {
+  color: var(--link);
+}
+
 /* --- 9. 响应式与移动端适配 --- */
 
 /* 平板与中屏设备 (宽度小于 1150px)：将 Logo 转为绝对定位，解决侧边固定遮挡问题 */
@@ -270,4 +383,13 @@ img {
 
   h1 { font-size: 28px; }
   h2 { font-size: 24px; }
+}
+
+/* 窄屏：入口卡片由三列改为单列堆叠 */
+@media (max-width: 640px) {
+  .lead { font-size: 17px; margin-bottom: 28px; }
+  .portals { grid-template-columns: 1fr; gap: 12px; }
+  .portal-card { padding: 20px 18px; }
+  .portal-desc { margin-top: 10px; }
+  .portal-arrow { margin-top: 14px; }
 }
