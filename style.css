@@ -392,7 +392,7 @@ body.home-page #content.home-content {
 .portal-desc {
   flex: 1 1 auto;
   margin-top: 14px;
-  color: var(--text-muted);
+  color: var(--text-body);
   font-size: 0.975rem;
   line-height: 1.6;
 }
