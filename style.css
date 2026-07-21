@@ -274,7 +274,7 @@ img {
 
 /* --- 10. 首页：分类与轻量内容预览 --- */
 body.home-page {
-  background-color: var(--content-bg);
+  background-color: var(--page-bg);
 }
 
 body.home-page #content.home-content {
@@ -335,9 +335,10 @@ body.home-page #content.home-content {
   flex-direction: column;
   align-items: flex-start;
   padding: 22px 22px 20px;
-  border: 1px solid var(--list-border);
+  border: 1px solid var(--content-border);
   border-radius: 16px;
-  background: var(--list-hover-bg);
+  background: var(--content-bg);
+  box-shadow: var(--content-shadow);
 }
 
 .portal-name {
