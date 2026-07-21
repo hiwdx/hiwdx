@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Andrew 的个人站点：文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
     <script src="/theme.js?v=20260702-1"></script>
-    <link rel="stylesheet" type="text/css" href="style.css?v=20260721-11">
+    <link rel="stylesheet" type="text/css" href="style.css?v=20260721-12">
 
     <meta property="og:title" content="hiwd - hi, world">
     <meta property="og:description" content="文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
@@ -18,52 +18,44 @@
     <a href="https://hiwd.com/" id="logo"></a>
 
     <main id="content" class="home-content">
-      <section class="home-intro" aria-labelledby="home-title">
-        <p class="home-kicker">hi, world</p>
-        <h1 id="home-title">欢迎来到 hiwd</h1>
-        <p class="home-summary">研究笔记、每日 AI 速报、金融数据，还有看懂 AI 新词的词卡。</p>
-      </section>
+      <div class="home-hero">
+        <div class="home-lede">
+          <p class="home-kicker">hi, world</p>
+          <h1 id="home-title">欢迎来到 hiwd</h1>
+          <p class="home-summary">研究笔记、每日 AI 速报、金融数据，还有看懂 AI 新词的词卡。</p>
 
-      <nav class="portals" aria-label="hiwd 的内容">
-        <div class="portal-card">
-          <a class="portal-name" href="words.html">文章平台</a>
-          <span class="portal-domain">hiwd.com/words</span>
-          <span class="portal-desc">研究笔记、想法与生活观察。不追热点，写值得留下来的。</span>
-          <a class="portal-cta" href="words.html">进入 <span class="portal-arrow" aria-hidden="true">→</span></a>
+          <nav class="home-list" aria-label="hiwd 的内容">
+            <a class="home-row" href="words.html">
+              <span class="home-row-main"><span class="home-row-name">文章平台</span><span class="home-row-sub">研究笔记、想法与生活观察</span></span>
+              <span class="home-row-go">进入 <span aria-hidden="true">→</span></span>
+            </a>
+            <a class="home-row" href="https://daily.hiwd.com/" target="_blank" rel="noopener">
+              <span class="home-row-main"><span class="home-row-name">daily</span><span class="home-row-sub">每日 AI 行业速报</span></span>
+              <span class="home-row-go">访问 <span aria-hidden="true">↗</span></span>
+            </a>
+            <a class="home-row" href="https://data.hiwd.com/" target="_blank" rel="noopener">
+              <span class="home-row-main"><span class="home-row-name">data</span><span class="home-row-sub">金融数据看板</span></span>
+              <span class="home-row-go">访问 <span aria-hidden="true">↗</span></span>
+            </a>
+            <button class="home-row" type="button" data-wordcard-open>
+              <span class="home-row-main"><span class="home-row-name">hiwd 词卡 <em>new</em></span><span class="home-row-sub">看懂 AI 时代新词</span></span>
+              <span class="home-row-go">打开 <span aria-hidden="true">→</span></span>
+            </button>
+          </nav>
         </div>
 
-        <div class="portal-card">
-          <a class="portal-name" href="https://daily.hiwd.com/" target="_blank" rel="noopener">daily</a>
-          <span class="portal-domain">daily.hiwd.com</span>
-          <span class="portal-desc">每天从海量信息里筛出几条真正值得看的 AI 变化，说清为什么重要。</span>
-          <a class="portal-cta" href="https://daily.hiwd.com/" target="_blank" rel="noopener">访问 <span class="portal-arrow" aria-hidden="true">↗</span></a>
+        <div class="home-visual">
+          <img src="img/index.png" alt="安藤忠雄的青苹果" width="500" height="500" loading="lazy">
         </div>
-
-        <div class="portal-card">
-          <a class="portal-name" href="https://data.hiwd.com/" target="_blank" rel="noopener">data</a>
-          <span class="portal-domain">data.hiwd.com</span>
-          <span class="portal-desc">个人投资者的金融数据看板：ETF 溢价、跨境套利与全球宏观锚点。</span>
-          <a class="portal-cta" href="https://data.hiwd.com/" target="_blank" rel="noopener">访问 <span class="portal-arrow" aria-hidden="true">↗</span></a>
-        </div>
-
-        <div class="portal-card">
-          <button class="portal-name portal-name-action" type="button" data-wordcard-open>hiwd 词卡 <em>new</em></button>
-          <span class="portal-domain">微信小程序</span>
-          <span class="portal-desc">看懂 AI 时代的新词。例：AI Agent —— 能拆任务、用工具并执行动作的 AI。</span>
-          <button class="portal-cta portal-cta-action" type="button" data-wordcard-open>打开 <span class="portal-arrow" aria-hidden="true">→</span></button>
-        </div>
-      </nav>
-
-      <p class="home-principle">没有推荐算法，没有追踪。打开，读，就这样。</p>
-
-      <div class="home-about">
-        <div>Andrew · <a href="andrew.html">about</a></div>
-        <button type="button" data-wechat-open>微信公众号</button>
       </div>
 
-      <a class="home-apple" href="words.html" aria-label="阅读文章">
-        <img src="img/index.png" alt="安藤忠雄的青苹果" width="500" height="500" loading="lazy">
-      </a>
+      <div class="home-footer">
+        <p class="home-principle">没有推荐算法，没有追踪。打开，读，就这样。</p>
+        <div class="home-about">
+          <div>Andrew · <a href="andrew.html">about</a></div>
+          <button type="button" data-wechat-open>微信公众号</button>
+        </div>
+      </div>
     </main>
 
     <dialog class="home-sheet" data-wordcard-dialog aria-labelledby="wordcard-title" tabindex="-1">
