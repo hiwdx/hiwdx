@@ -322,7 +322,8 @@ body.home-page #content.home-content {
   font-size: 1.0625rem;
 }
 
-/* 入口卡片网格：桌面 2×2，窄屏单列堆叠 */
+/* 入口卡片网格：桌面 2×2，窄屏单列堆叠。
+   卡片本身只是容器，仅标题与底部 CTA（进入/访问/打开 + 箭头）可点击 */
 .portals {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -333,27 +334,27 @@ body.home-page #content.home-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
-  margin: 0;
   padding: 22px 22px 20px;
   border: 1px solid var(--list-border);
   border-radius: 16px;
   background: var(--list-hover-bg);
-  color: var(--text-body);
-  font: inherit;
-  text-align: left;
-  text-decoration: none;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.22s ease, box-shadow 0.22s ease,
-              border-color 0.22s ease;
 }
 
 .portal-name {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--text-heading);
+  font-family: inherit;
   font-size: 1.25rem;
   font-weight: 650;
+  line-height: 1.3;
   letter-spacing: -0.018em;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .portal-name em {
@@ -367,7 +368,7 @@ body.home-page #content.home-content {
 }
 
 .portal-domain {
-  margin-top: 4px;
+  margin-top: 6px;
   color: var(--text-muted);
   font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
   font-size: 0.78rem;
@@ -382,22 +383,23 @@ body.home-page #content.home-content {
   line-height: 1.6;
 }
 
-.portal-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 18px;
+.portal-cta {
+  width: fit-content;
+  margin: 18px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--link);
+  font-family: inherit;
   font-size: 0.95rem;
   font-weight: 650;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.portal-chevron {
-  transition: transform 0.22s ease;
-}
-
-.portal-card:active {
-  transform: translateY(-1px);
+.portal-arrow {
+  margin-left: 4px;
 }
 
 .home-principle {
@@ -428,10 +430,10 @@ body.home-page #content.home-content {
 }
 
 .home-apple {
-  width: min(220px, 62%);
+  width: min(500px, 100%);
   height: auto;
-  margin: 40px auto 0;
-  border-radius: 14px;
+  margin-top: 12px;
+  border-radius: 10px;
   display: block;
 }
 
@@ -558,22 +560,15 @@ body.home-page #content.home-content {
 
 .home-sheet-close:focus-visible,
 .home-about button:focus-visible,
-.portal-card:focus-visible {
+.portal-name:focus-visible,
+.portal-cta:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 @media (hover: hover) {
-  .portal-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-soft);
-    box-shadow: var(--content-shadow);
-  }
-
-  .portal-card:hover .portal-chevron {
-    transform: translateX(4px);
-  }
-
+  .portal-name:hover,
+  .portal-cta:hover,
   .home-about button:hover,
   .home-apple:hover {
     opacity: 0.7;
@@ -602,13 +597,8 @@ body.home-page #content.home-content {
     margin-top: 10px;
   }
 
-  .portal-arrow {
+  .portal-cta {
     margin-top: 14px;
-  }
-
-  .home-apple {
-    width: min(200px, 70%);
-    margin-top: 30px;
   }
 
   .home-about {
@@ -654,10 +644,6 @@ body.home-page #content.home-content {
     animation: none;
     opacity: 1;
     transform: none;
-  }
-
-  .portal-card {
-    transition: none;
   }
 }
 
