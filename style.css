@@ -24,6 +24,11 @@
   --author-text: #555;
   --image-shadow: none;
   --logo-image: url('img/logo.png');
+  /* 首页表面：白天用明亮白底 + 细描边（无阴影），干净透亮 */
+  --home-bg: #ffffff;
+  --home-card: #ffffff;
+  --home-card-border: #e4e4e6;
+  --home-card-shadow: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,6 +51,10 @@
     --author-text: #bdc8c5;
     --image-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     --logo-image: url('img/logo-dark.png');
+    --home-bg: var(--page-bg);
+    --home-card: var(--content-bg);
+    --home-card-border: var(--content-border);
+    --home-card-shadow: var(--content-shadow);
   }
 }
 
@@ -68,6 +77,10 @@
   --author-text: #bdc8c5;
   --image-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   --logo-image: url('img/logo-dark.png');
+  --home-bg: var(--page-bg);
+  --home-card: var(--content-bg);
+  --home-card-border: var(--content-border);
+  --home-card-shadow: var(--content-shadow);
 }
 
 /* --- 1. 全局设置 (字体与基础颜色) --- */
@@ -274,7 +287,7 @@ img {
 
 /* --- 10. 首页：分类与轻量内容预览 --- */
 body.home-page {
-  background-color: var(--page-bg);
+  background-color: var(--home-bg);
 }
 
 body.home-page #content.home-content {
@@ -335,10 +348,10 @@ body.home-page #content.home-content {
   flex-direction: column;
   align-items: flex-start;
   padding: 22px 22px 20px;
-  border: 1px solid var(--content-border);
+  border: 1px solid var(--home-card-border);
   border-radius: 16px;
-  background: var(--content-bg);
-  box-shadow: var(--content-shadow);
+  background: var(--home-card);
+  box-shadow: var(--home-card-shadow);
 }
 
 .portal-name {
