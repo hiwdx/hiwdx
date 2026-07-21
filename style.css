@@ -335,6 +335,7 @@ body.home-page #content.home-content {
   color: var(--text-body);
   font-size: 1.15rem;
   line-height: 1.6;
+  text-wrap: balance;
 }
 
 /* 入口卡片网格：桌面 2×2，窄屏单列堆叠。
@@ -402,6 +403,7 @@ body.home-page #content.home-content {
   color: var(--text-body);
   font-size: 1rem;
   line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .portal-cta {
