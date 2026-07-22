@@ -287,9 +287,14 @@ body.home-page {
   background-color: var(--home-bg);
 }
 
+/* 首页 logo 改为随页面滚动（初始位置不变），避免固定 logo 压住左侧内容 */
+body.home-page #logo {
+  position: absolute;
+}
+
 body.home-page #content.home-content {
   max-width: 1140px;
-  padding: 24px 0 44px;
+  padding: 64px 0 44px;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -346,33 +351,33 @@ body.home-page #content.home-content {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  width: 100%;
-  margin: 0;
   padding: 20px 2px;
-  border: 0;
   border-bottom: 1px solid var(--list-border);
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  text-decoration: none;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: padding-left 0.2s ease;
 }
 
 .home-row-main {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 3px;
   min-width: 0;
 }
 
 .home-row-name {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--text-heading);
+  font-family: inherit;
   font-size: 1.25rem;
   font-weight: 650;
+  line-height: 1.25;
   letter-spacing: -0.02em;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .home-row-name em {
@@ -397,10 +402,17 @@ body.home-page #content.home-content {
 
 .home-row-go {
   flex: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--link);
+  font-family: inherit;
   font-size: 0.98rem;
   font-weight: 650;
   white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* 视觉锚点：青苹果 */
@@ -427,9 +439,6 @@ body.home-page #content.home-content {
 
 .home-about {
   margin-top: 8px;
-  display: flex;
-  align-items: center;
-  gap: 22px;
   color: var(--text-body);
   font-size: 1rem;
 }
@@ -439,7 +448,6 @@ body.home-page #content.home-content {
 }
 
 .home-about button {
-  min-height: 32px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -565,16 +573,15 @@ body.home-page #content.home-content {
 
 .home-sheet-close:focus-visible,
 .home-about button:focus-visible,
-.home-row:focus-visible {
+.home-row-name:focus-visible,
+.home-row-go:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 @media (hover: hover) {
-  .home-row:hover {
-    padding-left: 8px;
-  }
-
+  .home-row-name:hover,
+  .home-row-go:hover,
   .home-about a:hover,
   .home-about button:hover {
     opacity: 0.7;
@@ -602,12 +609,6 @@ body.home-page #content.home-content {
 
   .home-footer {
     margin-top: 44px;
-  }
-
-  .home-about {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
   }
 
   .home-sheet {
