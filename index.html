@@ -291,6 +291,7 @@
       color: var(--accent);
       font-style: normal;
     }
+    .mobile-break { display: none; }
 
     footer {
       display: block;
@@ -383,8 +384,8 @@
       .intro { margin-top: 20px; font-size: 17px; line-height: 1.62; }
       .visual-stack { width: min(100%, 320px) !important; max-width: none !important; margin: 24px auto 0 !important; }
       .portrait { aspect-ratio: 1; border-radius: 20px; }
-      .portrait figcaption { right: 10px; bottom: 10px; left: 10px; display: block; padding: 10px 12px; font-size: 11px; line-height: 1.35; }
-      .portrait figcaption span:last-child { display: block; margin-top: 3px; font-size: 10px; text-align: left; }
+      .portrait figcaption { right: 10px; bottom: 10px; left: 10px; display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; font-size: 10px; line-height: 1.2; white-space: nowrap; }
+      .portrait figcaption span:last-child { display: block; margin-top: 0; font-size: 9px; text-align: right; }
       .rail-wrap { padding: 0 0 24px; }
       .rail {
         display: grid;
@@ -408,7 +409,8 @@
       .destination p { min-height: 0; padding-right: 72px; font-size: 15px; }
       .destination-action { position: absolute; right: 0; bottom: 20px; margin: 0; font-size: 13px; }
       .position { padding: 32px 0 44px; }
-      .position blockquote { font-size: 32px; line-height: 1.18; }
+      .position blockquote { font-size: 30px; line-height: 1.18; }
+      .mobile-break { display: block; }
       footer { padding: 0 0 28px; }
       .home-sheet { width: 100%; max-width: none; margin: auto 0 0; border-width: 1px 0 0; border-radius: 24px 24px 0 0; }
       .home-sheet-panel { padding-bottom: calc(26px + env(safe-area-inset-bottom)); }
@@ -491,7 +493,7 @@
     <section class="shell position">
       <blockquote>
         <span>没有推荐算法，没有追踪。</span>
-        <em>探索，阅读，使用，就这样。</em>
+        <em>探索，阅读，<br class="mobile-break">使用，就这样。</em>
       </blockquote>
     </section>
   </main>
