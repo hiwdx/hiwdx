@@ -74,13 +74,13 @@
     .hero {
       position: relative;
       display: grid;
-      grid-template-columns: 456px minmax(0, 1fr);
+      grid-template-columns: 1fr;
       align-items: start;
       min-height: 0;
-      gap: clamp(36px, 4vw, 64px);
+      gap: 48px;
       padding: 24px 0 52px 36px;
     }
-    .hero-copy { position: relative; z-index: 2; grid-column: 2; padding: 0 7vw 0 0; }
+    .hero-copy { position: relative; z-index: 2; padding: 0 7vw 0 0; }
     .eyebrow {
       display: flex;
       align-items: center;
@@ -117,8 +117,6 @@
 
     .visual-stack {
       display: grid;
-      grid-column: 1;
-      grid-row: 1;
       justify-self: start;
       width: 456px;
       margin-left: 0;
@@ -379,10 +377,10 @@
       .hero { min-height: 0; gap: 24px; padding: 28px 0 32px 18px; }
       h1 { font-size: clamp(42px, 13.5vw, 56px); }
       .intro { margin-top: 20px; font-size: 17px; line-height: 1.62; }
-      .visual-stack { width: calc(100vw - 72px); max-width: none; }
+      .visual-stack { width: min(calc(100vw - 72px), 360px); max-width: none; margin-inline: auto; }
       .portrait { aspect-ratio: 1; border-radius: 20px; }
-      .portrait figcaption { right: 10px; bottom: 10px; left: 10px; display: block; padding: 10px 12px; font-size: 11px; }
-      .portrait figcaption span:last-child { display: block; margin-top: 4px; font-size: 10px; text-align: left; }
+      .portrait figcaption { right: 10px; bottom: 10px; left: 10px; display: block; padding: 10px 12px; font-size: 11px; line-height: 1.35; }
+      .portrait figcaption span:last-child { display: block; margin-top: 3px; font-size: 10px; text-align: left; }
       .rail-wrap { padding: 0 0 40px; }
       .rail {
         display: grid;
