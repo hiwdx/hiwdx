@@ -376,14 +376,15 @@
       .brand img { width: 84px; }
       .topbar { min-height: 80px; padding: 20px 18px 0; }
       .eyebrow { margin-bottom: 16px; font-size: 14px; }
-      .hero { min-height: 0; gap: 24px; padding: 28px 0 32px 18px; }
+      .hero { display: block; min-height: 0; padding: 28px 0 32px; }
+      .hero-copy { padding: 0 18px; }
       h1 { font-size: clamp(42px, 13.5vw, 56px); }
       .intro { margin-top: 20px; font-size: 17px; line-height: 1.62; }
-      .visual-stack { width: min(calc(100vw - 72px), 360px); max-width: none; margin-inline: auto; }
+      .visual-stack { width: 100% !important; max-width: none !important; margin: 24px auto 0 !important; }
       .portrait { aspect-ratio: 1; border-radius: 20px; }
       .portrait figcaption { right: 10px; bottom: 10px; left: 10px; display: block; padding: 10px 12px; font-size: 11px; line-height: 1.35; }
       .portrait figcaption span:last-child { display: block; margin-top: 3px; font-size: 10px; text-align: left; }
-      .rail-wrap { padding: 0 0 40px; }
+      .rail-wrap { padding: 0 0 24px; }
       .rail {
         display: grid;
         grid-template-columns: 1fr;
@@ -405,9 +406,9 @@
       .destination h2 { margin: 0 0 8px; font-size: 24px; }
       .destination p { min-height: 0; padding-right: 72px; font-size: 15px; }
       .destination-action { position: absolute; right: 0; bottom: 20px; margin: 0; font-size: 13px; }
-      .position { padding: 48px 0 64px; }
+      .position { padding: 32px 0 44px; }
       .position blockquote { font-size: 32px; line-height: 1.18; }
-      footer { padding: 0 0 34px; }
+      footer { padding: 0 0 28px; }
       .home-sheet { width: 100%; max-width: none; margin: auto 0 0; border-width: 1px 0 0; border-radius: 24px 24px 0 0; }
       .home-sheet-panel { padding-bottom: calc(26px + env(safe-area-inset-bottom)); }
     }
