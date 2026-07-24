@@ -1,147 +1,533 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>hiwd</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Andrew 的个人站点：文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
-    <script src="/theme.js?v=20260702-1"></script>
-    <link rel="stylesheet" type="text/css" href="style.css?v=20260721-14">
-
-    <meta property="og:title" content="hiwd - hi, world">
-    <meta property="og:description" content="文章、每日 AI 行业速报、金融数据和 hiwd 词卡。">
-    <meta property="og:image" content="https://hiwd.com/img/index.png">
-    <meta property="og:url" content="https://hiwd.com/">
-    <link rel="canonical" href="https://hiwd.com/">
-  </head>
-  <body class="home-page">
-    <a href="https://hiwd.com/" id="logo"></a>
-
-    <main id="content" class="home-content">
-      <div class="home-hero">
-        <div class="home-lede">
-          <p class="home-kicker">hi, world</p>
-          <h1 id="home-title">欢迎来到 hiwd</h1>
-          <p class="home-summary">研究笔记、每日 AI 速报、金融数据，还有看懂 AI 新词的词卡。</p>
-
-          <nav class="home-list" aria-label="hiwd 的内容">
-            <div class="home-row">
-              <span class="home-row-main">
-                <a class="home-row-name" href="words.html">文章平台</a>
-                <span class="home-row-sub">研究笔记、想法与生活观察</span>
-              </span>
-              <a class="home-row-go" href="words.html">进入 <span aria-hidden="true">→</span></a>
-            </div>
-            <div class="home-row">
-              <span class="home-row-main">
-                <a class="home-row-name" href="https://daily.hiwd.com/" target="_blank" rel="noopener">daily</a>
-                <span class="home-row-sub">每日 AI 行业速报</span>
-              </span>
-              <a class="home-row-go" href="https://daily.hiwd.com/" target="_blank" rel="noopener">访问 <span aria-hidden="true">↗</span></a>
-            </div>
-            <div class="home-row">
-              <span class="home-row-main">
-                <a class="home-row-name" href="https://data.hiwd.com/" target="_blank" rel="noopener">data</a>
-                <span class="home-row-sub">金融数据看板</span>
-              </span>
-              <a class="home-row-go" href="https://data.hiwd.com/" target="_blank" rel="noopener">访问 <span aria-hidden="true">↗</span></a>
-            </div>
-            <div class="home-row">
-              <span class="home-row-main">
-                <button class="home-row-name" type="button" data-wordcard-open>hiwd 词卡 <em>new</em></button>
-                <span class="home-row-sub">看懂 AI 时代新词</span>
-              </span>
-              <button class="home-row-go" type="button" data-wordcard-open>打开 <span aria-hidden="true">→</span></button>
-            </div>
-          </nav>
-        </div>
-
-        <div class="home-visual">
-          <img src="img/index.png" alt="安藤忠雄的青苹果" width="500" height="500" loading="lazy">
-        </div>
-      </div>
-
-      <div class="home-footer">
-        <p class="home-principle">没有推荐算法，没有追踪。打开，读，就这样。</p>
-        <p class="home-about">Andrew · <a href="andrew.html">about</a> · <button type="button" data-wechat-open>微信公众号</button></p>
-      </div>
-    </main>
-
-    <dialog class="home-sheet" data-wordcard-dialog aria-labelledby="wordcard-title" tabindex="-1">
-      <div class="home-sheet-panel">
-        <div class="home-sheet-handle" aria-hidden="true"></div>
-        <button class="home-sheet-close" type="button" aria-label="关闭" data-wordcard-close>×</button>
-        <div class="home-code-wrap">
-          <img class="home-code-image" src="img/hiwd-wordcard-mini-code.png" alt="hiwd 词卡小程序码" width="420" height="420">
-        </div>
-        <div class="home-sheet-copy">
-          <h2 id="wordcard-title">hiwd 词卡</h2>
-          <p>看懂 AI 时代的新词。微信扫码打开，手机上也可长按识别。</p>
-        </div>
-      </div>
-    </dialog>
-
-    <dialog class="home-sheet" data-wechat-dialog aria-labelledby="wechat-title" tabindex="-1">
-      <div class="home-sheet-panel">
-        <div class="home-sheet-handle" aria-hidden="true"></div>
-        <button class="home-sheet-close" type="button" aria-label="关闭" data-wechat-close>×</button>
-        <a class="home-code-wrap" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener" aria-label="打开 Andrew 的微信公众号文章">
-          <img class="home-code-image" src="img/qr.jpg" alt="Andrew 微信公众号二维码" width="258" height="258">
-        </a>
-        <div class="home-sheet-copy">
-          <h2 id="wechat-title">Andrew 公众号</h2>
-          <p>微信扫码关注，或者直接阅读文章合集。</p>
-          <a class="home-sheet-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener">阅读文章合集 ↗</a>
-        </div>
-      </div>
-    </dialog>
-
-    <script>
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(data => document.body.insertAdjacentHTML('beforeend', data));
-
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
-      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    const wechatArticlesURL = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&action=getalbum&album_id=1345414793699835904#wechat_redirect';
-
-    function wireSheet(dialogSelector, openSelector, closeSelector, iosURL) {
-      const dialog = document.querySelector(dialogSelector);
-      const openButtons = document.querySelectorAll(openSelector);
-      const closeButton = document.querySelector(closeSelector);
-
-      function closeSheet() {
-        if (typeof dialog.close === 'function') {
-          dialog.close();
-        } else {
-          dialog.removeAttribute('open');
-        }
-      }
-
-      openButtons.forEach(openButton => {
-        openButton.addEventListener('click', () => {
-          if (isIOS && iosURL) {
-            window.location.assign(iosURL);
-            return;
-          }
-
-          if (typeof dialog.showModal === 'function') {
-            dialog.showModal();
-            dialog.focus({ preventScroll: true });
-          } else {
-            dialog.setAttribute('open', '');
-          }
-        });
-      });
-
-      closeButton.addEventListener('click', closeSheet);
-      dialog.addEventListener('click', event => {
-        if (event.target === dialog) closeSheet();
-      });
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#101312">
+  <title>hiwd</title>
+  <style>
+    :root {
+      --bg: #101312;
+      --surface: #181c1b;
+      --surface-raised: rgba(30, 36, 34, .74);
+      --ink: #eef3f2;
+      --secondary: #aeb7b4;
+      --muted: #7e8885;
+      --accent: #28d0c1;
+      --line: rgba(255, 255, 255, .10);
+      --line-strong: rgba(255, 255, 255, .18);
+      --max: 1240px;
+      --ease: cubic-bezier(.22, .75, .28, 1);
     }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse 58% 34% at 72% 21%, rgba(40, 208, 193, .045), transparent 72%),
+        var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, "PingFang SC", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .skip {
+      position: fixed;
+      z-index: 20;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--bg);
+      transform: translateY(-160%);
+      transition: transform .2s ease;
+    }
+    .skip:focus { transform: translateY(0); }
+
+    .shell {
+      width: min(calc(100% - 72px), var(--max));
+      margin-inline: auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 8px;
+    }
+    .brand img { width: 92px; height: auto; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      min-height: 108px;
+      padding: 36px 36px 0;
+    }
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr);
+      align-items: start;
+      min-height: 0;
+      padding: 24px 0 82px 36px;
+    }
+    .hero-copy { position: relative; z-index: 2; padding: 0 7vw 0 0; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--secondary);
+      font-size: 14px;
+      letter-spacing: .02em;
+    }
+    .eyebrow::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      box-shadow: 0 0 0 4px rgba(40,208,193,.08);
+    }
+    h1 {
+      max-width: 660px;
+      margin: 0;
+      font-size: clamp(54px, 5.6vw, 82px);
+      font-weight: 620;
+      line-height: 1;
+      letter-spacing: -.065em;
+    }
+    .intro {
+      max-width: 500px;
+      margin: 22px 0 0;
+      color: var(--secondary);
+      font-size: clamp(17px, 1.25vw, 18px);
+      line-height: 1.65;
+      letter-spacing: -.012em;
+    }
+
+    .visual-stack {
+      display: grid;
+      justify-self: end;
+      width: min(100%, 456px);
+    }
+    .portrait {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #171b19;
+      box-shadow: inset 0 0 0 1px var(--line), 0 32px 80px rgba(0,0,0,.25);
+    }
+    .portrait::after {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: inherit;
+      content: "";
+      pointer-events: none;
+    }
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .65s var(--ease);
+    }
+    .portrait:hover img { transform: scale(1.018); }
+    .portrait figcaption {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(21, 29, 26, .86);
+      color: rgba(241,244,243,.92);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+      backdrop-filter: blur(14px) saturate(130%);
+    }
+    .portrait figcaption span {
+      min-width: 0;
+    }
+    .portrait figcaption span:first-child { letter-spacing: .01em; }
+    .portrait figcaption span:last-child {
+      color: rgba(241,244,243,.64);
+      font-size: 11px;
+      letter-spacing: .02em;
+      text-align: right;
+    }
+    .rail-wrap {
+      padding: 24px 0 112px;
+    }
+
+    .rail {
+      display: grid;
+      grid-template-columns: 1.24fr .92fr .92fr 1.08fr;
+      min-height: 276px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(24, 28, 27, .42);
+    }
+    .destination {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 30px 28px 26px;
+      border-right: 1px solid var(--line);
+      border-top: 0;
+      border-bottom: 0;
+      border-left: 0;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color .35s var(--ease), transform .14s ease;
+    }
+    .destination:last-child { border-right: 0; }
+    .destination::before {
+      position: absolute;
+      top: 0;
+      right: 100%;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      content: "";
+      transition: right .38s var(--ease);
+    }
+    .destination:hover,
+    .destination:focus-visible { background: rgba(255,255,255,.045); }
+    .destination:hover::before,
+    .destination:focus-visible::before { right: 0; }
+    .destination:active { transform: scale(.98); }
+    .destination .index {
+      margin-bottom: auto;
+      color: var(--muted);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .destination h2 {
+      margin: 54px 0 10px;
+      font-size: clamp(23px, 2vw, 30px);
+      font-weight: 540;
+      letter-spacing: -.035em;
+    }
+    .destination h2 em {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 7px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(40,208,193,.15);
+      color: var(--accent);
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 680;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      vertical-align: .18em;
+    }
+    .destination p {
+      min-height: 46px;
+      margin: 0;
+      color: var(--secondary);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .destination-action {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-end;
+      min-height: 32px;
+      margin-top: 22px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 620;
+      transition: transform .32s var(--ease), background-color .32s ease;
+    }
+    .destination:hover .destination-action { transform: translate(3px, -3px); }
+
+    .position {
+      padding: 112px 0 128px;
+    }
+    .position blockquote {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(32px, 4.25vw, 60px);
+      font-weight: 500;
+      line-height: 1.14;
+      letter-spacing: -.05em;
+    }
+    .position blockquote > span { display: block; }
+    .position blockquote em {
+      display: block;
+      margin-top: .36em;
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    footer {
+      display: block;
+      min-height: 0;
+      padding: 0 0 48px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    footer a, footer button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--secondary);
+      font: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color .2s ease;
+    }
+    footer a:hover, footer button:hover { color: var(--accent); }
+
+    .home-sheet {
+      width: min(390px, calc(100% - 32px));
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: 24px;
+      background: #181c1b;
+      color: var(--ink);
+      box-shadow: 0 28px 90px rgba(0,0,0,.42);
+    }
+    .home-sheet::backdrop { background: rgba(5,7,6,.62); backdrop-filter: blur(6px); }
+    .home-sheet-panel { position: relative; display: grid; gap: 18px; padding: 34px 30px 30px; text-align: center; }
+    .home-sheet-close {
+      position: absolute; top: 12px; right: 12px;
+      display: grid; width: 36px; height: 36px; place-items: center;
+      padding: 0 0 2px; border: 1px solid var(--line); border-radius: 50%;
+      background: rgba(255,255,255,.05); color: var(--ink); font: 24px/1 -apple-system,system-ui,sans-serif; cursor: pointer;
+    }
+    .home-code-image { width: min(172px, 58vw); margin: 0 auto; border-radius: 16px; background: #f5f5f5; }
+    .home-code-wrap { display: block; width: min(172px, 58vw); margin: 0 auto; }
+    .home-sheet-copy h2 { margin: 0; font-size: 23px; letter-spacing: -.04em; }
+    .home-sheet-copy p { margin: 9px 0 0; color: var(--secondary); font-size: 15px; line-height: 1.55; }
+    .home-sheet-link { display: inline-flex; min-height: 44px; align-items: center; margin-top: 6px; color: var(--accent); font-weight: 620; text-decoration: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: enter .7s var(--ease) forwards;
+    }
+    .hero-copy { animation-delay: .08s; }
+    .visual-stack { animation-delay: .18s; }
+    .rail-wrap { animation-delay: .28s; }
+    @keyframes enter { to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 860px) {
+      .shell { width: min(calc(100% - 40px), var(--max)); }
+      .brand img { width: 88px; }
+      .topbar { min-height: 94px; padding: 28px 24px 0; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 34px 0 64px 24px;
+      }
+      .hero-copy { padding: 0; }
+      h1 { font-size: clamp(52px, 13vw, 68px); }
+      .visual-stack { justify-self: stretch; width: min(100%, 560px); }
+      .portrait { aspect-ratio: 1; border-radius: 22px; }
+      .rail-wrap { padding: 12px 0 88px; }
+      .rail { grid-template-columns: 1fr 1fr; }
+      .destination { min-height: 250px; }
+      .destination:nth-child(2) { border-right: 0; }
+      .destination:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .position { padding: 88px 0 96px; }
+    }
+
+    @media (max-width: 540px) {
+      .shell { width: calc(100% - 36px); }
+      .brand img { width: 84px; }
+      .topbar { min-height: 80px; padding: 20px 18px 0; }
+      .eyebrow { margin-bottom: 16px; font-size: 14px; }
+      .hero { min-height: 0; gap: 28px; padding: 28px 0 52px 18px; }
+      h1 { font-size: clamp(42px, 13.5vw, 56px); }
+      .intro { margin-top: 20px; font-size: 17px; line-height: 1.62; }
+      .portrait { aspect-ratio: 1; border-radius: 20px; }
+      .portrait figcaption { right: 10px; bottom: 10px; left: 10px; gap: 10px; padding: 10px 12px; font-size: 11px; }
+      .portrait figcaption span:last-child { font-size: 10px; }
+      .rail-wrap { padding: 10px 0 76px; }
+      .rail {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+      }
+      .destination {
+        min-height: 0;
+        padding: 24px 0 22px;
+        border-right: 0 !important;
+        border-bottom: 1px solid var(--line) !important;
+      }
+      .destination:last-child { border-bottom: 0 !important; }
+      .destination::before { display: none; }
+      .destination .index { margin-bottom: 20px; }
+      .destination h2 { margin: 0 0 8px; font-size: 24px; }
+      .destination p { min-height: 0; padding-right: 72px; font-size: 15px; }
+      .destination-action { position: absolute; right: 0; bottom: 23px; margin: 0; font-size: 13px; }
+      .position { padding: 82px 0 92px; }
+      .position blockquote { font-size: 35px; }
+      footer { padding: 0 0 34px; }
+      .home-sheet { width: 100%; max-width: none; margin: auto 0 0; border-width: 1px 0 0; border-radius: 24px 24px 0 0; }
+      .home-sheet-panel { padding-bottom: calc(26px + env(safe-area-inset-bottom)); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .18s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .18s !important;
+      }
+      .reveal { transform: none; }
+      .portrait:hover img { transform: none; }
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .rail, .home-sheet { background: #181c1b; }
+      .home-sheet::backdrop { backdrop-filter: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">跳到主要内容</a>
+
+  <header class="shell topbar">
+    <a class="brand" href="/" aria-label="hiwd 首页">
+      <img src="img/hiwd-logo-white-green-dot-trimmed.png" alt="hiwd" width="824" height="318">
+    </a>
+  </header>
+
+  <main id="content">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">hi, world</p>
+        <h1 id="hero-title">欢迎来到 hiwd</h1>
+        <p class="intro">研究笔记、每日 AI 速报与金融数据。</p>
+      </div>
+
+      <div class="visual-stack reveal">
+        <figure class="portrait">
+          <img src="img/index.png" alt="安藤忠雄的青苹果" width="800" height="763" loading="lazy" decoding="async" fetchpriority="low">
+          <figcaption>
+            <span>保持好奇，也保持青涩</span>
+            <span>安藤忠雄 · 青苹果</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="shell rail-wrap reveal" aria-label="hiwd 的内容">
+      <div class="rail">
+        <a class="destination" href="words.html">
+          <span class="index">01</span>
+          <h2>文章</h2>
+          <p>研究笔记、想法与生活观察</p>
+          <span class="destination-action">进入 <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="destination" href="https://daily.hiwd.com/" target="_blank" rel="noopener">
+          <span class="index">02</span>
+          <h2>daily</h2>
+          <p>每日 AI 速报</p>
+          <span class="destination-action">访问 <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="destination" href="https://data.hiwd.com/" target="_blank" rel="noopener">
+          <span class="index">03</span>
+          <h2>数据</h2>
+          <p>金融数据</p>
+          <span class="destination-action">访问 <span aria-hidden="true">↗</span></span>
+        </a>
+        <button class="destination" type="button" data-wordcard-open>
+          <span class="index">04</span>
+          <h2>AI 词卡 <em>new</em></h2>
+          <p>读懂 AI 新词</p>
+          <span class="destination-action">打开 <span aria-hidden="true">→</span></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="shell position">
+      <blockquote>
+        <span>没有推荐算法，没有追踪。</span>
+        <em>探索，阅读，使用，就这样。</em>
+      </blockquote>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <a href="andrew.html">Andrew</a> · <button type="button" data-wechat-open>微信公众号</button>
+  </footer>
+
+  <dialog class="home-sheet" data-wordcard-dialog aria-labelledby="wordcard-title">
+    <div class="home-sheet-panel">
+      <button class="home-sheet-close" type="button" aria-label="关闭" data-wordcard-close>×</button>
+      <img class="home-code-image" src="img/hiwd-wordcard-mini-code.png" alt="AI 词卡小程序码" width="420" height="420">
+      <div class="home-sheet-copy">
+        <h2 id="wordcard-title">AI 词卡</h2>
+        <p>把 AI 新词做成词卡。微信扫码打开，手机上可长按识别。</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="home-sheet" data-wechat-dialog aria-labelledby="wechat-title">
+    <div class="home-sheet-panel">
+      <button class="home-sheet-close" type="button" aria-label="关闭" data-wechat-close>×</button>
+      <a class="home-code-wrap" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener" aria-label="打开微信公众号文章">
+        <img class="home-code-image" src="img/qr.jpg" alt="微信公众号二维码" width="258" height="258">
+      </a>
+      <div class="home-sheet-copy">
+        <h2 id="wechat-title">公众号</h2>
+        <p>扫码关注，或直接阅读文章合集。</p>
+        <a class="home-sheet-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxMDMzMzM4NQ==&amp;action=getalbum&amp;album_id=1345414793699835904#wechat_redirect" target="_blank" rel="noopener">阅读文章合集 ↗</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    function wireSheet(dialogSelector, openSelector, closeSelector) {
+      const dialog = document.querySelector(dialogSelector);
+      const openers = document.querySelectorAll(openSelector);
+      const closer = document.querySelector(closeSelector);
+      openers.forEach((opener) => opener.addEventListener('click', () => dialog.showModal()));
+      closer.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    }
     wireSheet('[data-wordcard-dialog]', '[data-wordcard-open]', '[data-wordcard-close]');
-    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]', wechatArticlesURL);
-    </script>
-  </body>
+    wireSheet('[data-wechat-dialog]', '[data-wechat-open]', '[data-wechat-close]');
+  </script>
+</body>
 </html>
