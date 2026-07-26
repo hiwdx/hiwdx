@@ -236,48 +236,21 @@ img {
   appearance: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-width: 82px;
-  min-height: 38px;
-  padding: 5px 12px 5px 6px;
-  border: 1px solid var(--list-border);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--content-bg) 86%, transparent);
-  color: var(--text-main);
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
   cursor: pointer;
-  font: 600 12px/1 -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  box-shadow: 0 8px 24px rgba(21, 34, 31, 0.08), inset 0 1px rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px) saturate(130%);
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  font: inherit;
+  transition: color 0.2s, opacity 0.2s;
 }
 
 .theme-toggle:hover {
-  border-color: var(--accent-soft);
+  color: var(--link);
   opacity: 1;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(21, 34, 31, 0.12), 0 0 0 3px rgba(0, 194, 179, 0.07);
 }
 
-.theme-toggle:active { transform: scale(0.97); }
-
-.theme-toggle::before {
-  width: 26px;
-  height: 26px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: var(--text-main);
-  content: "";
-}
-
-.theme-toggle[data-theme-target="dark"]::before {
-  background: radial-gradient(circle at 63% 35%, var(--content-bg) 0 32%, transparent 34%), var(--text-main);
-}
-
-.theme-toggle[data-theme-target="light"]::before {
-  background: radial-gradient(circle, #fff7bf 0 27%, transparent 29%),
-    conic-gradient(from 0deg, transparent 0 8%, #fff7bf 9% 13%, transparent 14% 20%, #fff7bf 21% 25%, transparent 26% 33%, #fff7bf 34% 38%, transparent 39% 45%, #fff7bf 46% 50%, transparent 51% 58%, #fff7bf 59% 63%, transparent 64% 70%, #fff7bf 71% 75%, transparent 76% 83%, #fff7bf 84% 88%, transparent 89% 95%, #fff7bf 96% 100%),
-    #27312e;
-}
+.theme-toggle:active { opacity: 0.65; }
 
 .theme-toggle:focus-visible {
   outline: 2px solid var(--accent);
