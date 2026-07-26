@@ -30,6 +30,9 @@
       --rail-bg: rgba(255, 255, 255, .52);
       --shadow: 0 26px 70px rgba(31, 43, 39, .12);
       --dialog-backdrop: rgba(24, 32, 30, .26);
+      --toggle-bg: linear-gradient(135deg, rgba(255,255,255,.9), rgba(40,208,193,.09));
+      --toggle-border: rgba(40, 208, 193, .34);
+      --toggle-glow: rgba(40, 208, 193, .13);
       --max: 1240px;
       --ease: cubic-bezier(.22, .75, .28, 1);
     }
@@ -56,6 +59,9 @@
         --rail-bg: rgba(24, 28, 27, .42);
         --shadow: 0 32px 80px rgba(0, 0, 0, .25);
         --dialog-backdrop: rgba(5, 7, 6, .62);
+        --toggle-bg: linear-gradient(135deg, rgba(45,54,51,.92), rgba(40,208,193,.12));
+        --toggle-border: rgba(40, 208, 193, .32);
+        --toggle-glow: rgba(40, 208, 193, .16);
       }
     }
 
@@ -80,6 +86,9 @@
       --rail-bg: rgba(24, 28, 27, .42);
       --shadow: 0 32px 80px rgba(0, 0, 0, .25);
       --dialog-backdrop: rgba(5, 7, 6, .62);
+      --toggle-bg: linear-gradient(135deg, rgba(45,54,51,.92), rgba(40,208,193,.12));
+      --toggle-border: rgba(40, 208, 193, .32);
+      --toggle-glow: rgba(40, 208, 193, .16);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -384,20 +393,39 @@
     footer a:hover, footer button:hover { color: var(--accent); }
     footer .theme-toggle {
       margin-left: auto;
-      padding: 4px 0;
-      border: 0;
+      margin-right: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 6px 12px 6px 9px;
+      border: 1px solid var(--toggle-border);
+      border-radius: 999px;
+      background: var(--toggle-bg);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 560;
+      line-height: 1;
+      box-shadow: 0 8px 24px var(--toggle-glow), inset 0 1px rgba(255,255,255,.2);
+      backdrop-filter: blur(12px) saturate(140%);
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    footer .theme-toggle::before {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
       background: transparent;
-      color: var(--secondary);
-      font-size: 15px;
-      font-weight: 400;
-      line-height: inherit;
-      transition: color .2s ease, opacity .2s ease;
+      content: "";
+      box-shadow: 0 0 0 4px var(--toggle-glow), 0 0 12px var(--accent);
     }
     footer .theme-toggle:hover {
-      color: var(--accent);
-      opacity: 1;
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px var(--toggle-glow), 0 0 0 3px var(--toggle-glow);
+      transform: translateY(-1px);
     }
-    footer .theme-toggle:active { opacity: .65; }
+    footer .theme-toggle:active { transform: scale(.97); }
 
     .home-sheet {
       width: min(390px, calc(100% - 32px));
@@ -469,7 +497,8 @@
       .hero-copy { padding: 0 18px; }
       h1 { font-size: clamp(42px, 13.5vw, 56px); }
       .intro { margin-top: 20px; font-size: 17px; line-height: 1.62; }
-      .visual-stack { width: min(100%, 350px) !important; max-width: none !important; margin: 24px auto 0 !important; }
+      /* 移动端青苹果以 350px 为视觉基准，窄屏仍保留安全边距。 */
+      .visual-stack { width: min(350px, 100%) !important; max-width: none !important; margin: 24px auto 0 !important; }
       .portrait { aspect-ratio: 1; border-radius: 20px; }
       .portrait figcaption { right: 10px; bottom: 10px; left: 10px; display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; font-size: 10px; line-height: 1.2; white-space: nowrap; }
       .portrait figcaption span:last-child { display: block; margin-top: 0; font-size: 9px; text-align: right; }
@@ -509,6 +538,7 @@
       .position blockquote { font-size: 30px; line-height: 1.18; }
       .mobile-break { display: block; }
       footer { padding: 0 0 28px; }
+      footer .theme-toggle { margin-right: 18px; }
       .home-sheet { width: 100%; max-width: none; margin: auto 0 0; border-width: 1px 0 0; border-radius: 24px 24px 0 0; }
       .home-sheet-panel { padding-bottom: calc(26px + env(safe-area-inset-bottom)); }
     }
