@@ -384,49 +384,20 @@
     footer a:hover, footer button:hover { color: var(--accent); }
     footer .theme-toggle {
       margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-width: 82px;
-      min-height: 38px;
-      padding: 5px 12px 5px 6px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface-raised);
-      color: var(--ink);
-      font-size: 12px;
-      font-weight: 560;
-      line-height: 1;
-      box-shadow: 0 8px 28px rgba(31, 43, 39, .08), inset 0 1px rgba(255, 255, 255, .12);
-      backdrop-filter: blur(12px) saturate(130%);
-      transition: border-color .25s ease, background-color .25s ease, transform .2s ease, box-shadow .25s ease;
-    }
-    footer .theme-toggle::before {
-      width: 26px;
-      height: 26px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      background: var(--ink);
-      color: var(--bg);
-      content: "";
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
-    }
-    footer .theme-toggle[data-theme-target="dark"]::before {
-      background:
-        radial-gradient(circle at 63% 35%, var(--surface) 0 32%, transparent 34%),
-        var(--ink);
-    }
-    footer .theme-toggle[data-theme-target="light"]::before {
-      background: radial-gradient(circle, #fff7bf 0 27%, transparent 29%),
-        conic-gradient(from 0deg, transparent 0 8%, #fff7bf 9% 13%, transparent 14% 20%, #fff7bf 21% 25%, transparent 26% 33%, #fff7bf 34% 38%, transparent 39% 45%, #fff7bf 46% 50%, transparent 51% 58%, #fff7bf 59% 63%, transparent 64% 70%, #fff7bf 71% 75%, transparent 76% 83%, #fff7bf 84% 88%, transparent 89% 95%, #fff7bf 96% 100%),
-        #27312e;
+      padding: 4px 0;
+      border: 0;
+      background: transparent;
+      color: var(--secondary);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: inherit;
+      transition: color .2s ease, opacity .2s ease;
     }
     footer .theme-toggle:hover {
-      border-color: rgba(40, 208, 193, .55);
-      box-shadow: 0 10px 32px rgba(31, 43, 39, .12), 0 0 0 3px rgba(40, 208, 193, .08);
-      transform: translateY(-1px);
+      color: var(--accent);
+      opacity: 1;
     }
-    footer .theme-toggle:active { transform: scale(.97); }
+    footer .theme-toggle:active { opacity: .65; }
 
     .home-sheet {
       width: min(390px, calc(100% - 32px));
@@ -580,7 +551,7 @@
         <figure class="portrait">
           <img src="img/index.png" alt="安藤忠雄的青苹果" width="800" height="763" loading="lazy" decoding="async" fetchpriority="low">
           <figcaption>
-            <span>保持好奇，也保持青涩</span>
+            <span>保持好奇，持续生长</span>
             <span>安藤忠雄 · 青苹果</span>
           </figcaption>
         </figure>
