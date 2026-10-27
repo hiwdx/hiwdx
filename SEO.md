@@ -2,6 +2,10 @@
 
 主站规范网址为 `https://hiwd.com/`。HTTP 和 www 由 GitHub Pages 301 跳转到主站；根目录的 `index.html` 使用首页规范网址。
 
+## 页面格式约定
+
+首页保持原有的简洁格式：title 为 `hiwd`，不添加扩展长标题、搜索描述、Open Graph 文案或网站名称结构化数据；保留 canonical 与 favicon。其他内容页面统一使用 `页面标题 - hiwd`，正文、样式与主题沿用原样。此约定来自用户要求，SEO 脚本不会要求首页恢复这些已撤回的信息。
+
 ## 发布新文章
 
 1. 按 `AGENTS.md` 写文章，并在 `words.html` 加真实 HTML 链接。

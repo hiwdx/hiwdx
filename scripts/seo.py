@@ -93,11 +93,15 @@ def main():
         label = page.path.relative_to(ROOT)
         if page.canonicals != [url]:
             errors.append(f'{label}: expected one self-referencing canonical {url}')
-        for key in ('description', 'og:title', 'og:description', 'og:url', 'og:site_name'):
+        # The homepage intentionally keeps its original minimal head and title.
+        required_meta = () if url == ORIGIN else ('description', 'og:title', 'og:description', 'og:url', 'og:site_name')
+        for key in required_meta:
             if len(page.meta.get(key, [])) != 1 or not page.value(key).strip():
                 errors.append(f'{label}: missing, empty or duplicate {key}')
-        if page.value('og:url') != url or page.value('og:site_name') != 'hiwd':
+        if url != ORIGIN and (page.value('og:url') != url or page.value('og:site_name') != 'hiwd'):
             errors.append(f'{label}: incorrect Open Graph URL or site name')
+        if url != ORIGIN and not page.title.endswith(' - hiwd'):
+            errors.append(f'{label}: title must use the format "page title - hiwd"')
         if not page.lang or 'hiwd' not in page.title.lower():
             errors.append(f'{label}: missing language or title brand')
         if not page.icons or any(not (ROOT / unquote(urlsplit(icon).path).lstrip('/')).is_file() for icon in page.icons):
@@ -112,9 +116,9 @@ def main():
     for title, count in Counter(page.title for page in public.values()).items():
         if count > 1:
             errors.append(f'duplicate title: {title}')
-    graph = public[ORIGIN].structured_data
-    if not any(node.get('@type') == 'WebSite' and node.get('name') == 'hiwd' and node.get('url') == ORIGIN for doc in graph for node in doc.get('@graph', [])):
-        errors.append('homepage must identify hiwd with WebSite structured data')
+    home = public[ORIGIN]
+    if home.title != 'hiwd' or home.value('description') or home.structured_data:
+        errors.append('homepage must preserve its plain hiwd title without added description or structured data')
     error_page = next(page for page in pages if page.path.name == '404.html')
     if error_page.indexable:
         errors.append('404.html must remain noindex')
