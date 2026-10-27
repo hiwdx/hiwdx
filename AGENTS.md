@@ -31,7 +31,7 @@
 ## 这是什么
 
 - **hiwd.com** 是一个纯静态 HTML 博客，托管在 GitHub Pages。
-- 仓库：`ilivecom/ilivecom`，域名由根目录 `CNAME` 指定。
+- 仓库：`hiwdx/hiwdx`，域名由根目录 `CNAME` 指定。
 - **没有构建步骤、没有框架、没有依赖**。改完 HTML 文件 `git push`，1–2 分钟后 hiwd.com 自动更新。
 - 所有页面都是手写 HTML + 一个全站样式表 `style.css`。
 
@@ -52,7 +52,8 @@
 2. **更新 `words.html`**：在对应分类的 `<ul class="article-list">` 里加一行链接。
    - 原创放「个人观点」那个列表，转载放「个人分享」那个列表。
    - 新文章习惯加在列表**靠前**位置。
-3. **创建 Pull Request**（见下方「发布方式」，会自动合并上线）。
+3. **维护 SEO**：补齐下方模板的搜索描述、规范网址等信息，运行 `python3 scripts/seo.py --write-sitemap`，将 `sitemap.xml` 一起提交；再运行 `python3 scripts/seo.py` 验证。详细说明见 `SEO.md`。
+4. **创建 Pull Request**（见下方「发布方式」，会自动合并上线）。
 
 > ⚠️ 只创建文件却忘了更新 `words.html`，文章就没有入口、读者找不到。两步都要做。
 
@@ -72,13 +73,19 @@
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8">
     <title>文章标题 - hiwd</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一句话摘要，不能留空">
+    <link rel="canonical" href="https://hiwd.com/andrew/文件名.html">
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="stylesheet" type="text/css" href="../style.css">
 
+    <meta property="og:site_name" content="hiwd">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:type" content="article">
     <meta property="og:title" content="文章标题">
     <meta property="og:description" content="一句话摘要">
     <meta property="og:image" content="https://hiwd.com/img/andrew.jpeg">
@@ -95,7 +102,7 @@
 
       <p>Andrew, June 2026</p>
 
-      <p><a href="../index.html">← 返回首页</a></p>
+      <p><a href="/">← 返回首页</a></p>
     </div>
 
     <script>
@@ -109,16 +116,17 @@
 
 ### 转载 / 笔记（放 `notes/`，从 h2 开始，无 h1）
 
-和上面**几乎一样**，区别只有两点：
+和上面**几乎一样**，区别如下：
 - 正文第一个标题用 `<h2>` 而不是 `<h1>`。
 - 注明出处（在结尾加一句来源说明）。
+- `canonical` 和 `og:url` 均使用文章真实的 `https://hiwd.com/notes/文件名.html` 地址。
 
 其余（`../style.css`、logo、`#content`、footer 脚本、返回首页链接）都保持一致。
 
 ## 路径规则（容易错，注意）
 
-- **子目录**（`andrew/`、`notes/`）里的文章：样式表用 `href="../style.css"`，返回首页用 `../index.html`。
-- **根目录**的页面：样式表用 `href="style.css"`，返回首页用 `index.html`。
+- **子目录**（`andrew/`、`notes/`）里的文章：样式表用 `href="../style.css"`，返回首页用 `/`。
+- **根目录**的页面：样式表用 `href="style.css"`，返回首页用 `/`。
 - `og:url` 永远是完整线上地址 `https://hiwd.com/路径/文件名.html`。
 - 页脚由每篇文章末尾那段 `fetch('/footer.html')` 脚本动态加载，**不要把页脚内容写死进文章**，照抄那段脚本即可。
 
